@@ -26,3 +26,33 @@
 대충 이렇게 작은 작업 하나를 마칠 때마다 commit 하는게 좋음
 물론 3개를 다 만들고 commit 해도 됨
 중요한 건 하루 1개 이상 커밋 할 것! (좋은 습관)
+
+5. CLI(Command Line Interface) 명령어 기반 VS GUI 툴 비교
+명령어는 모든 기능 사용 가능한 반면 GUI 툴은 툴 자체에 구현된 기능만 쓸 수 있음
+
+6. git push -u origin main
+-u 옵션은 방금 입력한 주소를 기억해라
+그 다음부터는 주소를 길게 입력하지 않고 git push만 입력해도 됨
+
+7. git remote -v 
+원격저장소 정보를 보고 싶을 때
+
+8. git clone https://원격저장소 주소
+원격 저장소에 올린 프로젝트를 내 로컬에 복제 (1번만 함)
+
+9. git pull 원격저장소 주소 (origin)
+원격 저장소에 있는 모든 브랜치 내용을 가져와서 로컬 저장소에 합치라는 뜻
+git pull origin main
+특정 브랜치(main)만 가져올 수 있음
+
+(중요) 작업하기 전에 git pull을 받아서 최산 상태로 만들어놓고 작업 시작!!
+
+(참고로) git pull 명령어는 gif fetch + git merge 를 합친 것
+git fetch는 원격 저장소의 최신 내용(commit)을 받아오는 것
+git merge는 그걸 merge(병합)하라는 뜻
+
+10. 저장소에 올리지 않을 파일들은 .gitignore
+설정 파일이나 빌드 산출물 기타 라이브러리 파일들 등 불필요한 파일들은 
+올리지 않는 것이 좋음
+.gitignore 파일을 만들어서 올리지 않을 폴더나 파일을 명시하면 됨
+그러면 git에서 해당 폴더랑 파일을 무시함
