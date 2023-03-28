@@ -1,0 +1,18 @@
+GIT 용어 정리
+
+git status (변경 상태 확인 (감지))
+git add .(모든 파일) or 파일 이름(특정 파일)
+git commit -m 'ㅇㅇ' (프로젝트 생성)
+git log (이력)
+
+-> 로컬에서 저장 완료
+
+깃허브 원격저장소 이름은 프로젝트 이름과 동일하게 만들기
+
+git remote add origin 주소 (원격 저장소 연결)
+git remote -v (원격 저장소 연결 상태 확인)
+git push origin main (원격 저장소에 업로드)
+git pull origin main (원격 저장소에서 다운로드)
+git clone (원격 저장소에 있는 프로젝트 로컬로 복제하기)
+
+-> 본격적인 프로젝트 활동 전 후 push/pull 습관화
