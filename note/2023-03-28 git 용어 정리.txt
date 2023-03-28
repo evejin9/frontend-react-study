@@ -1,4 +1,4 @@
-GIT 용어(문법) 정리
+GIT 용어(명령어) 정리
 
 git status (변경 상태 확인 (감지))
 git add .(모든 파일) or 파일 이름(특정 파일)
@@ -15,4 +15,7 @@ git push origin main (원격 저장소에 업로드)
 git pull origin main (원격 저장소에서 다운로드)
 git clone (원격 저장소에 있는 프로젝트 로컬로 복제하기)
 
--> 본격적인 프로젝트 활동 전 후 push/pull 습관화
+-> 본격적인 프로젝트 활동 전 후 push(업로드)/pull(다운로드) 습관화
+
+ctrl + shift + p (검색창)
+=> git clone 후 원격 저장소 주소 입력 (원격 저장소에서 로컬로 복제)
