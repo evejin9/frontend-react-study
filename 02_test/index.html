@@ -1,0 +1,54 @@
+<!-- 파일명을 index.html라고 하는 이유는 브라우저가 해당 이름을 가진 파일을 우선적으로 찾아 실행하기 때문 -->
+
+<!-- Document Type: HTML5(표준), 브라우저가 HTML5로 해석함 -->
+<!DOCTYPE html>
+<!-- lang(language)은 문서의 언어를 명시하는 속성, 기본값 en을 ko로 바꿔주면 번역 알림이 안뜸 -->
+<html lang="ko">
+<head>
+  <!-- 정보를 의미하는 태그들 -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>테스트입니다</title>
+
+  <!-- CSS, JS 연결하기 -->
+  <link rel="stylesheet" href="./css/main.css">
+  <script src="./js/main.js"></script>
+  <script>
+    console.log('내부 스트립트');
+  </script>
+
+  <!-- 내부 스타일시트 
+    여러 HTML 문서에 같은 스타일이 반복될 경우,
+    해당 스타일 규칙을 HTML 문서마다 반복 작성!
+    스타일 수정 시 여러 HTML 문서를 모두 수정해야 하므로 비효율적 => 지양
+  -->
+  <style>
+    div {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- 사용자 눈에 보이는 구조는 <body> 태그 안에 작성 -->
+  <div>Hello world!</div>
+
+<!-- 화면에 이미지 출력하기 -->
+<!-- 로고 이미지 따오기 -->
+<!-- alt(altenative)는 이미지가 출력되지 못하는 경우 대신 출력할 텍스트(대체 텍스트) 
+  이미지 경로가 잘못되거나 네트워크가 불안정해서 불러오지 못하는 경우 
+  이미지 대신 화면에 나올 글자
+  + 웹 접근성과 관련(스크린 리더가 alt 텍스트를 읽어줌)
+-->
+<!-- 상대 경로 -->
+<img src="./images/logo.png" alt="로고">
+<img src="images/logo.png" alt="로고">
+
+<!-- 절대 경로 -->
+<img src="/02_test/images/logo.png" alt="로고">
+<img src="https://heropy.blog/css/images/logo.png" alt="로고">
+
+<div class="logo"></div>
+
+</body>
+</html>
