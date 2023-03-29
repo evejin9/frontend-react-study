@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    span{
+      color: red;
+    }
+
+    div{
+      color: red;
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+  <!-- list(목록) 요소는 주로 메뉴나 탭 목록 등에 쓰임 -->
+  <!-- unordered list(블록): 순서가 필요없는 목록-->
+  <ul>
+    <!-- list item(블록): 목록 내의 각 항목 -->
+    <li>사과</li>
+    <li>딸기</li>
+    <li>수박</li>
+    <li>오렌지</li>
+  </ul>
+  
+  <!-- ordered list(블록): 순서가 있는 목록, ul에 비해 사용 빈도가 떨어짐 -->
+  <ol>
+    <!-- list item(블록): 목록 내의 각 항목 -->
+    <li>사과</li>
+    <li>딸기</li>
+    <li>수박</li>
+    <li>오렌지</li>
+  </ol>
+  
+  <!-- 메뉴 구조 만들기 실습  -->
+  <!-- 예) 메인 메뉴 - 서브 메뉴 -->
+  <ul>
+    <li><a href="#">메인 메뉴1</a></li>
+    <li>
+      <a href="#">메인 메뉴2</a>
+      <ul>
+        <li><a href="#">서브 메뉴2-1</a></li>
+        <li>
+          <a href="#">서브 메뉴2-2</a>
+          <ul>
+            <li><a href="#">하위 메뉴2-2-1</a></li>
+            <li><a href="#">하위 메뉴2-2-2</a></li>
+          </ul>
+        </li>
+        <li><a href="#">서브 메뉴2-3</a></li>
+      </ul>
+    </li>
+    <li><a href="#">메인 메뉴3</a></li>
+    <li>
+      <a href="#">메인 메뉴4</a>
+      <ul>
+        <li><a href="#">서브 메뉴4-1</a></li>
+        <li><a href="#">서브 메뉴4-2</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <!-- anchor(인라인): 닻, 페이지 이동하는 하이퍼링크를 지정(닻을 내리는 것) -->
+  <!-- 인라인 요소 수평 배열 -->
+  <!-- 
+    target 속성: 링크된 페이지를 어디에 표시할지 타겟 지정
+    _self: 현재 탭(기본값)
+    _blank: 새로운 탭
+  -->
+  <a href="https://www.naver.com">NAVER</a>
+  <a href="https://www.google.com" target="_blank">Google</a>
+
+  <!-- (추가 설명) 임시 태그 -->
+  <a href="#">임시 태그</a>
+  <a href="#Intro">Intro</a>
+  <a href="#Guide">Guide</a>
+
+  <!-- span(인라인): 텍스트 구분을 위해 사용(주로 글자에 스타일 적용할 때) -->
+  <p>
+    <span>동해물</span>과  백두산이 마르고 닳도록
+  </p>
+  
+  <!-- span을 div로 바꿔보기 -->
+  <!-- div는 글자를 다루는데 적합하지 않음 -->
+  <p>
+    <div>동해물</div>과  백두산이 마르고 닳도록
+  </p>
+  
+  <!-- 임시 태그 이동 테스트 -->
+  <h2 id="Intro">Intro</h2>
+  <p style="height: 300px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quos incidunt accusamus ea, corporis nam nostrum, delectus quibusdam quas unde ipsum est eveniet sapiente fugiat, eos non beatae odio voluptas?</p>
+  <p style="height: 300px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quos incidunt accusamus ea, corporis nam nostrum, delectus quibusdam quas unde ipsum est eveniet sapiente fugiat, eos non beatae odio voluptas?</p>
+  <p style="height: 300px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quos incidunt accusamus ea, corporis nam nostrum, delectus quibusdam quas unde ipsum est eveniet sapiente fugiat, eos non beatae odio voluptas?</p>
+
+  <h2 id="Guide">Guide</h2>
+  <p style="height: 300px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quos incidunt accusamus ea, corporis nam nostrum, delectus quibusdam quas unde ipsum est eveniet sapiente fugiat, eos non beatae odio voluptas?</p>
+  <p style="height: 300px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quos incidunt accusamus ea, corporis nam nostrum, delectus quibusdam quas unde ipsum est eveniet sapiente fugiat, eos non beatae odio voluptas?</p>
+  <p style="height: 300px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quos incidunt accusamus ea, corporis nam nostrum, delectus quibusdam quas unde ipsum est eveniet sapiente fugiat, eos non beatae odio voluptas?</p>
+
+</body>
+</html>
