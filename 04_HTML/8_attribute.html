@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    /* 모든 span 태그에 적용됨 */
+    /* span{
+      color: red;
+    } */
+
+    /* class를 의미하는 . */
+    .red {
+      color: red;
+    }
+
+    /* id를 의미하는 # */
+    #abc {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <!-- 태그마다 사용 가능한 속성이 정해져있음(w3school 참고) -->
+  <img src="https://via.placeholder.com/150" alt="">
+  <!-- <img> 태그에 href 속성은 독장 안 함 -->
+  <img href="https://via.placeholder.com/150" alt="">
+
+  <br><br>
+
+  <!-- HTML 전역(global) 속성: 모든 태그에서 사용 가능한 속성 -->
+  <!-- title: 요소의 설명, 마우스 커서를 올리면 지정한 설명이 나타남 -->
+  <a href="https://www.naver.com" target="_blank" title="네이버로 이동">NAVER</a>
+
+  <br><br>
+
+  <!-- style: 요소에 직접 스타일 적용(인라인 스타일) -->
+  <span style="color: blue;">파란색 글자</span>
+
+  <br><br>
+
+  <!-- class: 요소를 지칭하는 중복 가능한 이름 -->
+  <!-- 선택자로 class를 사용하여 스타일을 지정 또는 JS로 DOM 조작(제어) -->
+  <span>동해물</span>과 <span class="red">백두산</span>이 마르고 닳도록
+  하느님이 보우하사 <span class="red">우리나라</span> 만세
+
+  <br><br>
+
+  <!-- (참고) 클래스 이름 작명 방법론 -->
+  <!-- 대표적으로 BEM(Block Element Modifier) 방법론 소개 -->
+  <!-- HTML class 속성을 통해 요소의 일부분 혹은 상태를 이름으로 구분할 수 있도록 작성하는 것 -->
+  <!--  
+    대상__일부분: 2개의 언더바 기호
+    대상--상태: 2개의 대시 기호
+  -->
+
+  <!-- 일부분 표시 -->
+  <div class="user">
+    <div class="user__name">김수진</div>
+    <div class="user__age">95</div>
+    <div class="user__email">abc@gmail.com</div>
+  </div>
+
+  <!-- 상태 표시 -->
+  <button type="button" class="btn">Cancel</button>
+  <button type="button" class="btn btn--primary">OK</button>
+  <button type="button" class="btn btn--danger">Delect</button>
+
+  <br><br>
+
+  <!-- id: 요소를 지칭하는 고유한 이름(하나의 웹 문서 내에 1개만 존재) -->
+  <!-- class 보다는 많이 사용 안 함(특히 React에서는 사용 안 함) -->
+  <!-- 고유하기 때문에 중요한 요소를 조금 더 쉽게 찾을 수 있음 -->
+  <span id="abc">동해물</span>과 <span class="red">백두산</span>이 마르고 닳도록
+  하느님이 보우하사 <span class="red">우리나라</span> 만세
+
+  <!-- data: 요소에 데이터를 저장하는 용도(사용자 정의 속성을 만듦) -->
+  <!--  JS에서 이 속성으로 저장한 데이터를 꺼내서 이용 가능 -->
+  <!-- 사용법: data-내가 원하는 이름 작명="데이터" -->
+  <div data-fruit-name="apple">사과</div>
+  <div data-fruit-name="banana">바나나</div>
+
+  <script>
+    // div 태그를 모두 찾아서 elements 라는 그릇에 담음
+    const elements = document.querySelectorAll('div');
+    // 찾은 요소들을 하나씩 반복해가면서 element에 다시 담고
+    elements.forEach(element => {
+      // console.log(element.dataset.fruit-name); 안됨
+      console.log(element.dataset.fruitName); // JS 표기법
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .placeholder-hidden:focus::placeholder {
+      color: transparent;
+    }
+  </style>
+
+</head>
+<body>
+  <!-- input(인라인-블록): 데이터를 입력받는 요소 -->
+  <!-- 인라인-블록 요소:
+    기본적인 특징은 인라인 요소(base)와 동일
+    + 블록 요소처럼 가로/세로 길이와 상하/좌우 여백을 모두 지정 가능
+  -->
+  <!-- type 속성: 입력 받을 데이터 타입을 지정 -->
+
+  <!-- 일반 텍스트 사용법 -->
+  <input type="text">
+
+  <!-- 값을 미리 입력 -->
+  <input type="text" value="hello">
+
+  <!-- 입력할 값의 힌트 -->
+  <input type="text" placeholder="이름을 입력하세요!">
+  <!-- Tip! 포커스 시 사라지는 힌트 -->
+  <input type="text" placeholder="이름을 입력하세요!" class="placeholder-hidden">
+
+  <!-- 비활성화: 수정 불가, Tab키로 선택 불가, submit 불가 -->
+  <input type="text" value="disabled 테스트" disabled>
+  
+  <!-- (참고) 읽기 전용: 수정 불가, Tab키로 선택 가능, submit 가능 -->
+  <input type="text" value="readonly 테스트" readonly>
+
+  <hr>
+
+  <!-- 체크박스 사용법 -->
+  <!-- 
+    label 바인딩 조건(둘 중에 하나만 만족하면 됨):
+    1.label 요소 내부에 요소를 배치하여 레이블을 요소에 바인딩
+    2. for 속성이 <label> 관련 요소의 id 속성과 같아야 함
+  -->
+  <label>
+    <input type="checkbox"> Apple
+  </label>
+  <label>
+    <input type="checkbox"> Banana
+  </label>
+
+  <br>
+
+  <input type="checkbox" id="apple">
+  <label for="apple">Apple</label>
+  <input type="checkbox" id="banana">
+  <label for="banana">Banana</label>
+
+  <!-- 
+    label 사용 이점(웹 접근성과 관련):
+    1. 스크린 리더 사용자(사용자가 요소에 초점을 맞추면 레이블을 소리내어 읽어줌)
+    2. 매우 작은 영역(예: 확인란)을 클릭하는데 어려움이 있는 사용자
+    - 사용자가 요소 내의 텍스트를 클릭하면 레이블 입력이 토글되기 때문(히트 영역이 증가)
+  -->
+
+  <br>
+
+  <!-- 값을 미리 체크 -->
+  <label>
+    <input type="checkbox"> Apple
+  </label>
+  <label>
+    <input type="checkbox" checked> Banana
+  </label> 
+
+  <hr>
+
+  <!-- 라디오 버튼 사용법 -->
+  <!-- type만 썼을 경우 -->
+  <label>
+    <input type="radio"> Apple
+  </label>
+  <label>
+    <input type="radio"> Banana
+  </label>
+  
+  <br>
+  
+  <!-- 체크박스는 중복 선택 가능, 라디오 버튼은 그룹당 한 개만 선택 가능 -->
+  <label>
+    <input type="radio" name="fruits" checked> Apple
+  </label>
+  <label>
+    <input type="radio" name="fruits"> Banana
+  </label>
+  
+  <br>
+
+  <!-- name이 다른 경우 그룹화 안됨 -->
+  <label>
+    <input type="radio" name="fruits1" checked> Apple
+  </label>
+  <label>
+    <input type="radio" name="fruits2"> Banana
+  </label>
+  
+  <hr>
+
+  <!-- 그 밖에 다른 입력 양식들 (input에서 ctrl + space) (w3cshool) -->
+
+  <!-- 버튼 -->
+  <input type="button" value="닫기">
+  <button type="button"><b>닫기</b><br>테스트</button>
+  <!-- 
+    요소 내부에 텍스트 뿐만 아니라 다른 태그를 넣을 수 있음
+    <i>, <em>, <b>, <strong>,
+    <br>, <img> 등 사용 가능
+  -->
+
+  <hr>
+
+  <!-- 색상 선택도구(Color Picker) -->
+  <label for="favcolor">좋아하는 색을 선택해보세요: </label>
+  <input type="color" id="favcolor" value="#ff0000">
+
+  <hr>
+
+  <!-- 날짜 -->
+  <label for="birthday">생일: </label>
+  <input type="date" id="birthday">
+  <br>
+  <!-- 날짜 + 시간 -->
+  <label for="birthdaytime">생일(날짜/시간): </label>
+  <input type="datetime-local" id="birthdaytime">
+  <br>
+  <!-- 시간 -->
+  <label for="time">시간 선택: </label>
+  <input type="time" id="time">
+
+  <hr>
+
+  <!-- 파일 선택(첨부) -->
+  <label for="myfile">파일 선택: </label>
+  <input type="file" id="myfile">
+  <br>
+  <label for="myfile">여러 파일 선택: </label>
+  <input type="file" id="myfile" multiple>
+  
+  <hr>
+
+  <!-- 범위 선택 -->
+  <label for="volume">음량(0 ~ 10)</label>
+  <input type="range" id="volume" min="0" max="10">
+
+  <hr>
+
+  <!-- 비밀번호 -->
+  <label for="pwd">비밀번호: </label>
+  <input type="password" id="pwd">
+
+  <hr>
+
+  <!-- 셀렉트 박스(콤보 박스) -->
+  <label for="cars">차량 선택: </label>
+  <select id="cars">
+    <option value="Volvo">Volvo</option>
+    <option value="benz">Benz</option>
+    <option value="audi">Audi</option>
+  </select>
+
+  <hr>
+
+  <!-- 여러 줄 입력 -->
+  <p>
+    <label for="multi">여러 줄 텍스트 입력: </label>
+  </p>
+  <textarea id="multi" cols="30" rows="6"></textarea>
+  <br>
+  <textarea id="multi" cols="30" rows="6" style="resize: none;"></textarea>
+</body>
+</html>
