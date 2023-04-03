@@ -50,7 +50,7 @@ header ul.main-menu {
   } */
 
   #detail_list > h3:last-child:hover {
-  border: 2px solid red;
+  border: 2px solid red; 
   }
 
 /* 7. 82~85 라인의 type이 text인 <input>태그에 focus 됐을 때의 선택자를 작성(속성 선택자 필수) */
