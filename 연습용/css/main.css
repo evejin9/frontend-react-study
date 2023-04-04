@@ -1,0 +1,26 @@
+.list {
+  width: 100px;
+  height: 300px;
+  border: 2px solid;
+  display: inline-block;
+}
+
+header > img {
+  border: 2px solid;
+}
+
+.name:not(.fragaria) {
+  width: auto;
+  border: 2px solid ;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: red;
+}
+
+.fragaria {
+  border: 2px solid ;
+  border-right: none;
+  background-color: white;
+}
+
+
