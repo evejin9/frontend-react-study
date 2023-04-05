@@ -7,6 +7,10 @@
 
 header > img {
   border: 2px solid;
+  width: 180px;
+  height: 180px;
+  margin: 16px;
+
 }
 
 .name:not(.fragaria) {
@@ -15,6 +19,7 @@ header > img {
   text-align: center;
   box-sizing: border-box;
   background-color: red;
+  margin: 16px;
 }
 
 .fragaria {
@@ -23,7 +28,20 @@ header > img {
   background-color: white;
 }
 
-nav {
-  display: inline;
+span {
+  width: 143.6px;
+  height: 25.5px;
+}
+
+/* TODO:나중에 flex 배울 때 위치 다시 잡기 */
+
+header {
+  display: flex;
+  /* justify-content: flex-end; */
+}
+
+.name {
+  /* display: flex; */
+  justify-content: flex-end;
 }
 
