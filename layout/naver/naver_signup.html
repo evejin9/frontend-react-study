@@ -15,7 +15,7 @@
     <div class="top">
       <!-- h1(강조의 의미) 또는 div -->
       <h1 class="logo">
-        <a href="">로고 자리</a>
+        <a href="https://www.naver.com"><img src="https://ssl.pstatic.net/static/nid/join/m_logo_naver.png" alt="네이버 로고"></a>
       </h1>
     </div>
   </header>
@@ -31,66 +31,83 @@
       </div>
 
       <!-- 이 안에 작업하세요. -->
-      <label for="pw">비밀번호</label>
-      <input type="password" id="pw">
+      <div>
+        <label for="pw">비밀번호</label>
+        <input type="password" id="pw">
+      </div>
       
-      <label for="pw-r">비밀번호 재확인</label>
-      <input type="password" id="pw-r">
+      <div>
+        <label for="pw-r">비밀번호 재확인</label>
+        <input type="password" id="pw-r">
+      </div>
       
-      <label for="name">이름</label>
-      <input type="text" id="name">
+      <div>
+        <label for="name">이름</label>
+        <input type="text" id="name">
+      </div>
 
-      <label for="birthday-y">생년월일</label>
-      <input type="text" id="birthday-y" placeholder="년(4자)">
+      <div>
+        <label for="birthday-y">생년월일</label>
+        <br>
+        <input type="text" id="birthday-y" placeholder="년(4자)" class="birthday" class="input-font">
+        
+        <label for="birthday-m"></label>
+        <select id="birthday-m" class="birthday">
+          <option value="month">월</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
+        
+        <label for="birthday-d"></label>
+        <input type="text" id="birthday-d" placeholder="일" class="birthday">
+      </div>
+
+      <div>
+        <label for="sex">성별</label>
+        <select id="sex">
+          <option value="">성별</option>
+          <option value="male">남자</option>
+          <option value="female">여자</option>
+          <option value="none">선택 안함</option>
+        </select>
+      </div>
       
-      <label for="birthday-m"></label>
-      <select id="birthday-m">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-      </select>
-
-      <label for="birthday-d"></label>
-      <input type="text" id="birthday-d" placeholder="일">
-
-      <label for="sex">성별</label>
-      <select id="sex">
-        <option value="">성별</option>
-        <option value="male">남자</option>
-        <option value="female">여자</option>
-        <option value="none">선택 안함</option>
-      </select>
+      <div>        
+        <label for="email">본인 확인 이메일
+          <label id="choice">(선택)</label>
+        </label>
+        <input type="text" id="email">
+      </div>
       
-      <label for="email">본인 확인 이메일</label>
-      <input type="text" id="email">
-      
-      <label for="phone">휴대전화</label>
-      <select id="phone">
-        <option value="korea">대한민국 +82</option>
-        <option value="german">독일 +49</option>
-        <option value="UK">영국 +44</option>
-        <option value="USA">미국/캐나다 +1</option>
-      </select>
-
-      <label for="p-nunber"></label>
-      <input type="text" id="p-nunber" placeholder="전화번호 입력">
-
-      <!-- <label for="send-button"></label> -->
-      <!-- <input type="button" value="인증번호 받기" id="send-button"> -->
-
-      <a href="#" id="send-button"> <button>인증번호 받기</button> </a>
-
-      <label for="mms-n"></label>
-      <input type="text" placeholder="인증번호 입력하세요" readonly>
+      <div>
+        <label for="phone">휴대전화</label>
+        <select id="phone">
+          <option value="korea">대한민국 +82</option>
+          <option value="german">독일 +49</option>
+          <option value="UK">영국 +44</option>
+          <option value="USA">미국/캐나다 +1</option>
+        </select>
+        <label for="p-nunber"></label>
+        <input type="text" id="p-nunber" placeholder="전화번호 입력">
+        
+        <!-- <label for="send-button"></label> -->
+        <!-- <input type="button" value="인증번호 받기" id="send-button"> -->
+        
+        <a href="#" id="send-button"> <button>인증번호 받기</button> </a>
+        
+        <label for="mms-n"></label>
+        <input type="text" placeholder="인증번호 입력하세요" disabled>
+      </div>
 
       <!-- <label for="sign-up"></label> -->
       <!-- <input type="button" value="가입하기"> -->
 
-      <a href="#" id="sign-up"> <button>인증번호 받기</button> </a>
+      <a href="#" id="sign-up"> <button>가입하기</button> </a>
 
 
       
@@ -102,10 +119,24 @@
     <!-- 가운데 정렬을 위한 inner div -->
     <div class="bottom">
       <div class="bt-menu">
-        하단 메뉴 자리
+        <ul id="list">
+          <li>
+            <a href="#">이용약관</a>
+          </li>
+          <li>
+            <strong><a href="#">개인정보처리방침</a></strong>
+          </li>
+          <li>
+            <a href="#">책임의 한계와 법적고지</a>
+          </li>
+          <li>
+            <a href="#">회원정보 고객센터</a>
+          </li>
+        </ul>
       </div>
       <div class="copyright">
-        카피라이트 자리
+        <em>@</em>
+        <a href="#">NAVER Corp.</a>
       </div>
     </div>
   </footer>
