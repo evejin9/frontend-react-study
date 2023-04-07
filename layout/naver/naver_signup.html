@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>네이버: 회원가입</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <link rel="stylesheet" href="./css/naver.signup.css">
+</head>
+<body>
+  <!-- 헤더 영역 -->
+  <header>
+    <!-- 가운데 정렬을 위한 inner div -->
+    <div class="top">
+      <!-- h1(강조의 의미) 또는 div -->
+      <h1 class="logo">
+        <a href="">로고 자리</a>
+      </h1>
+    </div>
+  </header>
+
+  <!-- 메인 영역 -->
+  <main id="container">
+    <!-- 가운데 정렬을 위한 inner div -->
+    <div class="section-input">
+      <label for="id">아이디</label>
+      <div class="input-group-row">
+        <input type="text" id="id">
+        <span>@naver.com</span>
+      </div>
+
+      <!-- 이 안에 작업하세요. -->
+      <label for="pw">비밀번호</label>
+      <input type="password" id="pw">
+      
+      <label for="pw-r">비밀번호 재확인</label>
+      <input type="password" id="pw-r">
+      
+      <label for="name">이름</label>
+      <input type="text" id="name">
+
+      <label for="birthday-y">생년월일</label>
+      <input type="text" id="birthday-y" placeholder="년(4자)">
+      
+      <label for="birthday-m"></label>
+      <select id="birthday-m">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select>
+
+      <label for="birthday-d"></label>
+      <input type="text" id="birthday-d" placeholder="일">
+
+      <label for="sex">성별</label>
+      <select id="sex">
+        <option value="">성별</option>
+        <option value="male">남자</option>
+        <option value="female">여자</option>
+        <option value="none">선택 안함</option>
+      </select>
+      
+      <label for="email">본인 확인 이메일</label>
+      <input type="text" id="email">
+      
+      <label for="phone">휴대전화</label>
+      <select id="phone">
+        <option value="korea">대한민국 +82</option>
+        <option value="german">독일 +49</option>
+        <option value="UK">영국 +44</option>
+        <option value="USA">미국/캐나다 +1</option>
+      </select>
+
+      <label for="p-nunber"></label>
+      <input type="text" id="p-nunber" placeholder="전화번호 입력">
+
+      <!-- <label for="send-button"></label> -->
+      <!-- <input type="button" value="인증번호 받기" id="send-button"> -->
+
+      <a href="#" id="send-button"> <button>인증번호 받기</button> </a>
+
+      <label for="mms-n"></label>
+      <input type="text" placeholder="인증번호 입력하세요" readonly>
+
+      <!-- <label for="sign-up"></label> -->
+      <!-- <input type="button" value="가입하기"> -->
+
+      <a href="#" id="sign-up"> <button>인증번호 받기</button> </a>
+
+
+      
+    </div>
+  </main>
+
+  <!-- 푸터 영역 -->
+  <footer>
+    <!-- 가운데 정렬을 위한 inner div -->
+    <div class="bottom">
+      <div class="bt-menu">
+        하단 메뉴 자리
+      </div>
+      <div class="copyright">
+        카피라이트 자리
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
