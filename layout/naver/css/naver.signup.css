@@ -51,7 +51,7 @@ header .logo a img {
   max-width: 768px;
   /* background-color: royalblue; */
   margin: 0 auto;
-  height: 996px;
+  /* height: 996px; */
 }
 
 #container .section-input {
@@ -145,15 +145,15 @@ header .logo a img {
 /* 푸터 영역 */
 footer {
   width: 100%;
-  background-color: cadetblue;
+  /* background-color: cadetblue; */
   font-size: 12px;
 }
 
 footer .bottom {
   max-width: 768px;
   height: 84px;
-  margin: 0 auto;
-  background-color: burlywood;
+  margin: 8px auto;
+  /* background-color: burlywood; */
 
   display: flex;
   flex-direction: column;
@@ -162,8 +162,24 @@ footer .bottom {
   text-align: center;
 }
 
-footer .bottom .bt-menu {
+footer .bt-menu #list {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 0px 9px;
 }
+
+#list li {
+  padding: 0px 3px 0px 7px;
+}
+
+#list li + li {
+  border-left: 1px solid #7e7e7e;
+}
+
+strong {
+  font-weight: bold;
+}
+
 
 a, em{
   color: #7e7e7e;
