@@ -108,7 +108,7 @@ header .logo a img {
 }
 
 #container .birthday {
-  width: 146px;
+  width: 150px;
 }
 
 #container #choice {
@@ -128,6 +128,7 @@ header .logo a img {
   background-color: #03c75a;
   color: #fff;
   border: solid 1px #dadada;
+  margin-left: 4px;
 }
 
 #container #sign-up button{
