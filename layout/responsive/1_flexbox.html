@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .flex-container {
+      display: flex;
+      flex-direction: row;
+      font-size: 30px;
+      text-align: center;
+    }
+
+    .flex-item-left{
+      background-color: #f1f1f1;
+      padding: 10px;
+      /* width: 50%; */
+      flex: 1;
+    }
+    .flex-item-right{
+      background-color: dodgerblue;
+      padding: 10px;
+      /* width: 50%; */
+      flex: 1;
+    }
+
+    /* 반응형 레이아웃 - 1열 레이아웃 만들기 */
+    @media screen and (max-width: 800px) {
+      .flex-container {
+        flex-direction: column;
+      }
+      /* .flex-item-left,
+      .flex-item-right {
+        width: 100%;
+      } */
+    }
+    
+    @media screen and (max-width: 600px) {
+      .flex-item-unimportant {
+        display: none;
+      }
+    }
+    .flex-item-first {
+      background-color: #f1f1f1;
+      padding: 10px;
+      flex: 1;
+    }
+    .flex-item-unimportant {
+      background-color: dodgerblue;
+      padding: 10px;
+      flex: 1;
+    }
+    .flex-item-last {
+      background-color: orange;
+      padding: 10px;
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <h1>Responsive Flexbox</h1>
+  <div class="flex-container">
+    <div class="flex-item-left">1</div>
+    <div class="flex-item-right">2</div>
+  </div>
+
+  <div class="flex-container">
+    <div class="flex-item-first">1</div>
+    <div class="flex-item-unimportant">2</div>
+    <div class="flex-item-last">3</div>
+  </div>
+</body>
+</html>
