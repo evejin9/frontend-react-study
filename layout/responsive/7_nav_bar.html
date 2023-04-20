@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+
+  <style>
+    /* CSS 변수 선언으로 재사용 */
+    /* 
+      2개의 대시(--)기호로 시작하고 원하는 변수명 지정: CSS값
+      선언된 변수는 CSS var() 함수를 통해 사용
+    */
+    /* 
+      주의! 자신이 선언된 선택자와 그 하위 요소에서만 유효
+      전역 변수로 사용하고 싶으면, 
+      html {
+        --error: red;
+      }
+      :root {
+        --error: red;
+      }
+    */
+    html,
+    :root {
+      --color-text: #f2f2f2;
+      --color-background: #044288;
+      --color-orange: #ff9950;
+    }
+
+    /* 공통 스타일 */
+    * {
+      box-sizing: border-box;
+    }
+    a {
+      text-decoration: none;
+      color: white;
+    }
+    .btn {
+      width: 100px;
+      height: 40px;
+      border-color: var(--color-orange);
+      border-radius: 4px;
+      outline: none;
+      font-size: 1rem;
+      color: var(--color-orange);
+      background-color: transparent;
+      cursor: pointer;
+    }
+    .btn:hover {
+      color: var(--color-text);
+      background-color: var(--color-orange);
+    }
+    .material-icons {
+      font-size: inherit;
+      color: var(--color-orange);
+    }
+
+    header {
+      background-color: var(--color-background);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      position: relative;
+    }
+    header .logo {
+      font-size: 48px;
+      display: flex;
+      align-items: center;
+    }
+
+    header .nav__menu--main {
+      display: flex;
+    }
+    header .nav__menu--main > li {
+      padding: 8px 12px;
+    }
+    header .nav__menu--main > li:hover {
+      background-color: var(--color-orange);
+      border-radius: 4px;
+    }
+
+    header .btn-group .btn + .btn {
+      margin-left: 10px;
+    }
+
+    header .btn-hamburger {
+      position: absolute;
+      right: 32px;
+      font-size: 48px;
+      display: none;
+    }
+
+    header .nav.active,
+    header .btn-group.active {
+      display: block;
+    }
+
+    /* <!-- (추가) 모바일용 메뉴 --> */
+    header .m-nav {
+      width: 50%;
+      height: 100vh;
+      padding: 10px 20px;
+      background-color: var(--color-background);
+      position: fixed;
+      top: 0;
+      right: -50%;
+      transition: .5s;
+    }
+    header .m-nav ul {
+      text-align: center;
+    }
+
+    header .m-nav.active {
+      right: 0;
+    }
+    header .m-nav div {
+      text-align: right;
+    }
+    header .m-nav .btn-close {
+      font-size: 48px;
+    }
+
+    /* ~ 767px*/
+    @media screen and (max-width: 767px) {
+      header {
+        flex-direction: column;
+      }
+
+      header .logo {
+        align-self: flex-start;
+      }
+
+      header .nav {
+        width: 100%;
+        display: none;
+      }
+      header .nav__menu--main {
+        flex-direction: column;
+        align-items: center;
+      }
+      header .nav__menu--main > li {
+        width: 100%;
+        text-align: center;
+      }
+      header .btn-group {
+        margin-top: 10px;
+        display: none;
+      }
+      header .btn-hamburger {
+        display: block;
+      }
+
+      /* active 클래스가 추가되면 보이기! */
+      header .nav.active,
+      header .btn-group.active {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span class="material-icons">logo_dev</span>
+      <a href="#">Suzzi</a>
+    </div>
+
+    <nav class="nav">
+      <ul class="nav__menu--main">
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+        <li><a href="#">메뉴4</a></li>
+        <li><a href="#">메뉴5</a></li>
+      </ul>
+    </nav>
+
+    <div class="btn-group">
+      <button type="button" class="btn">Sign In</button>
+      <button type="button" class="btn">Sign Up</button>
+    </div>
+
+    <a href="#" class="btn-hamburger">
+      <span class="material-icons">menu</span>
+    </a>
+
+    <!-- (추가) 모바일용 메뉴 -->
+    <nav class="m-nav">
+      <div>
+        <a href="#" class="btn-close">
+          <span class="material-icons">close</span>
+        </a>
+      </div>
+      <ul>
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+        <li><a href="#">메뉴4</a></li>
+        <li><a href="#">메뉴5</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <script>
+    // Quiz
+    // 햄버거 버튼을 누르면 .nav와 .btn-group 요소에 'active'라는 클래스 값 추가 (in JS)
+    // 'active'라는 클래스 값이 있으면 보이기! (in CSS)
+    const btnHamburger = document.querySelector('.btn-hamburger');
+    const nav = document.querySelector('header .nav');
+    const btnGroup = document.querySelector('header .btn-group');
+
+    const mobileNavEl = document.querySelector('header .m-nav');
+    const btnClose = document.querySelector('header .btn-close');
+
+    
+
+    btnHamburger.addEventListener('click', function () {
+      // nav.classList.toggle('active');
+      // btnGroup.classList.toggle('active');
+
+      mobileNavEl.classList.add('active');
+    });
+
+    btnClose.addEventListener('click', function () {
+      mobileNavEl.classList.remove('active');
+    })
+  </script>
+</body>
+</html>
