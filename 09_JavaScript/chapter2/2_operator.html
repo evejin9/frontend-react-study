@@ -74,6 +74,19 @@
     num1 %= num2; // num1 = num1 % num2;
     document.write(num1, '<br>');
 
+    // (참고) 대입 연산자 응용
+    // 데이터를 동적으로 받아와서 넣어줄 때 사용
+    // innerHTML, appendChild(), insertBefore()
+    const data1 = '데이터1', data2 = '데이터2', data3 = '데이터3';
+    let html = '<table border="1">';
+    html    += '<tr>';
+    html    += `  <td>${data1}</td>`;
+    html    += `  <td>${data2}</td>`;
+    html    += `  <td>${data3}</td>`;
+    html    += '</tr>';
+    html    += '</table>';
+    document.write(html);
+
     // 증감 연산자
     // ++(1씩 증가), --(1씩 감소)
     document.write('<h2>증감 연산자</h2>');
@@ -94,23 +107,119 @@
     result = ++num2; // num2 = num2 + 1; result = num2;
     document.write(result, '  ', num2, '<br>');
 
-
     // Quiz
     num1 = 10;
     num2 = 20;
     result = ++num1 + num2--;
     // result, num1, num2에 저장된 값은?
     // 순서대로 풀어서 써보기!
-    
     // num1 = num1 + 1;
     // result = num1 + num2;
-    // num2 = num2 + 1;
+    // num2 = num2 - 1;
+    document.write(result, '<br>');
 
-    // result = 11 + 20 (31); 
-    // num1 = 11;
-    // num2 = 19;
+    // 비교 연산자
+    // 데이터를 서로 비교하여 결과값으로 true(참), false(거짓)를 반환
+    // >, <, >=, <=, ==, !=, ===(권장), !==(권장)
+    document.write('<h2>비교 연산자</h2>');
+    let a = 10;
+    let b = 20;
+    let c = 10;
+    let f = '20';
 
-    document.write(result, ' ', num1, ' ',  num2, '<br>');
+    result = a > b;
+    document.write(result, '<br>');
+    result = a < b;
+    document.write(result, '<br>');
+    result = a <= b;
+    document.write(result, '<br>');
+    result = b == f; // 값만 비교
+    document.write(result, '<br>');
+    result = b === f; // 값과 타입까지 비교 (권장)
+    document.write(result, '<br>');
+    result = a != b;
+    document.write(result, '<br>');
+    result = b != f; // 값만 비교
+    document.write(result, '<br>');
+    result = b !== f; // 값과 타입까지 비교(권장)
+    document.write(result, '<br>');
+    
+    // 논리 연산자
+    // &&(AND): 피연산자 둘 다 true일 때만 true, 피자 그리고 떡볶이 사와
+    // ||(OR): 둘 중 한 개만 true이면 true, 피자 또는 떡볶이 사와
+    // !(NOT): 부정 연산자, true <=> false, 
+    document.write('<h2>논리 연산자</h2>');
+    a = 10;
+    b = 20;
+    let m = 30;
+    let n = 40;
+    
+    // (참고) 연산자의 우선순위
+    // 1. ( ) = 헷갈리면 사용 권장
+    // 2. 단항 연산자(++, --, !)
+    // 3. 산술 연산자(+, -, *, /, %)
+    // 4. 비교 연산자(>, <, >=, <=, ==, !=, ===, !==)
+    // 5. 논리 연산자(&&, ||)
+    // 6. 대입 연산자(=)
+    
+    result = a > b || b >= m || m > n; // false || false || false
+    document.write(result, '<br>'); // false
+    
+    result = a > b || b >= m || m <= n; // false || false || true
+    document.write(result, '<br>'); // true
+
+    result = a <= b && b >= m && m <= n; // true && false && true
+    document.write(result, '<br>'); // false
+
+    result = a <= b && b <= m && m <= n; // true && true && true
+    document.write(result, '<br>'); // true
+
+    result = !(a > b); // !false
+    document.write(result, '<br>'); // true
+
+    // Short-circuit evaluation(단축 평가)
+    result = a > b && m <= n; // false && 
+    document.write(result, '<br>'); // false
+    result = a < b || m > n; // true || 
+    document.write(result, '<br>'); // true
+
+    // (응용) 필요 시 기본값 설정
+    // false로 취급되는 값: 0, null, undefined ''(빈문자), NaN
+    const dbData = null;
+    result = dbData || '기본값'; 
+    document.write(result, '<br>');
+
+    // (심화) Short-circuit evaluation 예제
+    let aa; // falsy value
+    let bb = null; // falsy value
+    let cc = undefined; // falsy value
+    let dd = 4; // Not falsy
+    let ee = 'five'; // Short-circuit에 의해 도달하지 않음
+    let ff = aa || bb || cc || dd || ee;
+    document.write(ff, '<br>');
+
+    // 삼항 연산자
+    // 조건식 ? 값1 : 값2;
+    document.write('<h2>삼항 연산자</h2>');
+    result = true ? 'javascript' : 'hello' ;
+    document.write(result, '<br>');
+
+    const score = 95;
+    result = score >= 90 ? 'A' : (score >= 80 ? 'B' : 'C' ) ;
+    document.write(result, '<br>');
+    
+    // 실습: 홀짝 판별기
+    // window.prompt('메세지', '기본값'): 입력을 요청하는 대화 상자
+    // 확인을 누르면 입력값이, 취소를 누르면 null을 반환
+    document.write('<h2>실습: 홀짝 판별기</h2>');
+    const number = prompt('숫자를 입력하세요', '0');
+    // document.write(typeof number, '<br>');
+
+    // Number()를 안써도 연산 시 숫자로 자동 타입 변환이 일어남
+    result = Number(number) % 2 === 0 ? '짝수' : '홀수';
+    document.write(result, '<br>');
+    
+
 
   </script>
 </head>
