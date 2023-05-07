@@ -10,6 +10,22 @@
     // 사용자로부터 세 개의 정수를 입력받아, 
     // 그 수들의 최대값과 최소값, 합계와 평균을 구해서 브라우저에 출력하세요.
 
+    const A = Number(prompt('당신이 좋아하는 첫 번째 숫자는?', ''));
+    const B = Number(prompt('당신이 좋아하는 두 번째 숫자는?', ''));
+    const C = Number(prompt('당신이 좋아하는 세 번째 숫자는?', ''));
+
+    const arr = [A, B, C];
+    const maxValue = Math.max(...arr);
+    const minValue = Math.min(...arr);
+
+    document.write('최대값: ' + maxValue, '<br>');
+    document.write('최소값: ' + minValue, '<br>');
+
+    result = A + B + C;
+
+    document.write('합계: ' + result , '<br>');
+    document.write('평균: ' + result / 2);
+
     // 풀이5
     // 주의! 덧셈을 하려면 숫자로 변환해 줄 것!!
     

@@ -15,11 +15,19 @@
     const grade = prompt('당신은 몇 학년 입니까?', '');
     const score = Number(prompt('이번 중간고사 시험 점수를 입력하세요.', ''));
 
-    if (condition) {
-      
+    if (grade >= 1 && grade <= 3 && score >= 60) {
+      document.write('합격');
+      if (score < 0 || score > 100) {
+        alert('에러입니다.');
+      }
+    } else if (grade >= 4 && grade <= 6 && score >= 70) {
+      document.write('합격');
+      if (score < 0 || score > 100) {
+        alert('에러입니다.');
+      }
     } else {
-      
-    }
+      document.write('불합격');
+    };
     // 풀이3
     
   </script>

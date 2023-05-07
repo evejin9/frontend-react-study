@@ -18,8 +18,17 @@
     const height = prompt('신장을 입력하세요.', '0');
     let msg = '놀이기구 이용 가능';
     
+    if (height >= 150) {
+      document.write(msg);
+    } else {
+      const result = confirm('부모님과 함께 왔나요?');
+      if (result) {
+      document.write('좋은 시간 보내렴~');
+      } else {
+      document.write('어른 모시고 다시 오렴~');
+      }
+    }
     // 풀이4-1
-    
 
     // 풀이4-2
     
