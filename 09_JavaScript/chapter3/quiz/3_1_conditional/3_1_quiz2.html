@@ -9,12 +9,21 @@
     // 문제2
     // 정수 한 개를 입력받아서, 그 수가 3의 배수인지 판단하고 
     // 결과는 "3의 배수" 혹은 "3의 배수 아님" 으로 브라우저에 출력하세요.
-    const b = Number(prompt('숫자를 입력하세요', ''));
-    result = b % 3 === 0 ? '3의 배수' : '3의 배수 아님';
-    document.write(b + '는 ' + result);
+
+    // 풀어보기
+    // const b = Number(prompt('숫자를 입력하세요', ''));
+    // result = b % 3 === 0 ? '3의 배수' : '3의 배수 아님';
+    // document.write(b + '는 ' + result);
 
     // 풀이2
-    
+    const num = prompt('숫자 입력', '0');
+    let msg = '3의 배수 아님';
+
+    if (num % 3 === 0) {
+      msg = '3의 배수';
+    }
+    document.write(msg)
+
   </script>
 </head>
 <body>

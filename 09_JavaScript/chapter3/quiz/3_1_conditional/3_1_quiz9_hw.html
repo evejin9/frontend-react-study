@@ -18,27 +18,56 @@
     // 1) 정상적인 돈 값이 입력되지 않았을 때(예: 0원 이하일 때) 에러 메시지 출력 후 새로고침(location.reload();)
     // 2) 없는 과자 종류를 입력했을 때 에러 메시지 출력 후 새로고침(location.reload();)
     // 3) 돈이 모자랄 때 에러 메시지 출력 후 새로고침(location.reload();)
-
     const money = Number(prompt('돈을 넣어주세요.', '0'));
     let change = 0; // 거스름돈
 
-    const snack = '허니버터' || '칸쵸' || '프링글스'
-    const honeyButter = 1300
-    const kancho = 1500
-    const pringles = 3000
+    // 풀어보기
+    // const snack = '허니버터' || '칸쵸' || '프링글스'
+    // const honeyButter = 1300
+    // const kancho = 1500
+    // const pringles = 3000
 
-    if (money >= 0 ) {
-      const buySnack = prompt('과자 종류를 선택해주세요.', '0');
-      if (buySnack === snack) {
-          document.write('정상적으로 입력하셨습니다.');
-      } 
-    } else {
-      alert('정상적인 돈 값을 입력하여 주세요.');
-      location.reload();
-    }
+    // if (money >= 0 ) {
+    //   const buySnack = prompt('과자 종류를 선택해주세요.', '0');
+    //   if (buySnack === snack) {
+    //       document.write('정상적으로 입력하셨습니다.');
+    //   } 
+    // } else {
+    //   alert('정상적인 돈 값을 입력하여 주세요.');
+    //   location.reload();
+    // }
     
     // 풀이
-    
+    if (money <= 0 || isNaN(money)) { // 정상적인 돈 값이 입력되지 않았을 때
+      alert('돈을 다시 넣어주세요.');
+      location.reload(); // 새로고침
+    } else { // 정상적인 돈 값이 입력된 경우
+      const snack = prompt('어떤 과자를 뽑으실 건가요? (허니버터, 칸쵸, 프링글스)', '');
+
+      switch (snack) {
+        case '허니버터':
+          change = money - 1300;
+          break;
+        case '칸쵸':
+          change = money - 1500;
+          break;
+        case '프링글스':
+          change = money - 3000;
+          break;
+        default: // 없는 과자 종류 입력 시
+          alert('해당 과자가 없습니다');
+          location.reload();
+          break;
+        }
+        
+        if (change < 0) { // 돈이 모자랄 때 
+          alert('돈이 모자랍니다.');
+          location.reload();
+        }
+        
+      document.write(`${snack} 나왔습니다! 거스름돈은 ${change}원 입니다.`);
+    }
+
   </script>
 </head>
 <body>
