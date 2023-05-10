@@ -172,8 +172,102 @@
     // 배열의 인덱스는 0부터 시작
     // 변수[인덱스 번호]로 접근 가능
 
+    // 배열에 저장된 값 출력하기(여러가지 방법이 존재)
+    const arr = [30, '따르릉', true];
+    console.log(arr);
 
+    document.write('<h3> 배열값 가져오기-1</h3>');
+    document.write(arr[0],'<br>');
+    document.write(arr[1],'<br>');
+    document.write(arr[2],'<br>');
 
+    document.write('<h3> 배열값 가져오기-2</h3>');
+    for (let i = 0; i < arr.length; i++) {
+      document.write(arr[i], '<br>');
+    }
+
+    document.write('<h3> 배열값 가져오기-3</h3>');
+    for (const i in arr) { // key 값을 가져옴
+      document.write(arr[i], '<br>');
+    }
+    // (참고)
+    // for..in 반복문은 배열이 아니라 객체와 함께 사용할 때 최적화 되어 있어서 배열에 사용하면 객체에 사용하는 것 대비 10~100배 정도 느림 
+    // for..in 반복문의 속도가 대체로 빠른 편이기 때문에 문제가 되진 않지만, 이런 차이를 알고 적절히 사용
+    // 보통 배열엔 되도록 for..in 쓰지 말것을 권장!
+    document.write('<h3> 배열값 가져오기-4</h3>');
+    for (const el of arr) { // Value 값을 가져옴. (ES6차)
+      document.write(el, '<br>');
+    }
+
+    document.write('<h3> 배열값 가져오기-5</h3>');
+    arr.forEach(function (element, index) {
+      document.write(index, ' ', element, '<br>');
+    });
+
+    // 배열 객체의 메소드(1)
+    const arr1 = ['사당', '교대', '방배', '강남'];
+    const arr2 = ['신사', '압구정', '옥수'];
+
+    let resultArr = arr1.join('-'); // 배열의 값을 지정한 문자로 연결하여 하나의 문자열 반환
+    console.log(resultArr);
+
+    resultArr = arr1.concat(arr2); // 두 개의 배열을 하나의 배열로 결합하여 새로운 배열로 반환
+    console.log(resultArr);
+
+    resultArr = arr1.slice(1, 3); // 지정된 시작과 끝 위치(포함 안 함) 구간만큼 잘라내서 새로운 배열로 반환
+    console.log(resultArr);
+
+    arr.sort(); // 배열의 값을 오름차순(알파벳 순)으로 정렬 (원본 배열이 변경됨)
+    console.log(arr1);
+
+    arr2.reverse(); // 배열의 순서를 반대로 바꿈(원본 배열이 변경됨)
+    console.log(arr2);
+
+    // (중요) array.sort(비교 함수): 숫자를 정렬하기 위한 비교 함수 필요
+    // 비교 함수: function(a, b) { return a - b; }
+    document.write('<h1>배열에서 숫자 데이터 정렬</h1>');
+    const score = [40, 100, 1, 5, 25, 10];
+    document.write(score.sort(), '<br>'); // '25'는 '100'보다 크다. 왜냐하면 문자 '2'가 '1'보다 크기 때문
+    document.write(score.sort(function(a, b) { return a - b; }), '<br>');
+    // 반환되는 값이 음수, 양수, 0인지에 따라 정렬 
+    // 음수가 나오면 a, b순으로
+    // 양수가 나오면 b, a순으로
+    // 0이 나오면 변화 없음
+
+    // 배열 객체 메소드(2)
+    const greenArr = ['교대', '방배', '강남'];
+    const yellowArr = ['미금', '정자', '수서'];
+
+    // array.splice(index, howmany, item1, ....., itemX)
+    greenArr.splice(2, 1, '서초', '역삼'); // 배열 요소를 추가하거나 제거(원본 배열이 변경됨)
+    console.log(greenArr);
+
+    const popData = yellowArr.pop(); // 배열의 마지막 요소를 제거, 제거된 요소를 반환(원본 배열이 변경됨)
+    console.log(yellowArr);
+    console.log(popData);
+    const shiftData = yellowArr.shift(); // 배열의 첫번째 요소를 제거, 제거된 요소를 반환(원본 배열이 변경됨)
+    console.log(yellowArr);
+    console.log(shiftData);
+
+    yellowArr.push(shiftData); // 배열의 끝에 새 요소를 추가(원본 배열이 변경됨) 
+    console.log(yellowArr);
+    yellowArr.unshift(popData); // 배열의 시작 부분에 새 요소를 추가(원본 배열이 변경됨) 
+    console.log(yellowArr);
+    
+    // 배열 객체의 메소드(3) - 검색
+    const fruits = ['Banana', 'Orange', 'Apple', 'Mango', 'Apple'];
+
+    // indexOf(): 지정된 값의 첫번째 인덱스(위치)를 반환, 찾을 수 없는 경우 -1
+    let index = fruits.indexOf('Apple');
+    console.log(index);
+    index = fruits.indexOf('Apple', 3); // 검색 시작 위치 지정
+    console.log(index);
+
+    // includes(): 지정된 값이 포함된 경우 true, 포함되지 않은 경우 false (ES7차)
+    console.log(fruits.includes('Mango'));
+    console.log(fruits.includes('Banana', 3));
+    
+    
 
 
 
