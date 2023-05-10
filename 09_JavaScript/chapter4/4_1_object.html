@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 객체
+    // 여러 데이터들의 묶음
+    // 속성(데이터, Property)과 기능(동작, Method)을 가지는 모든 것
+    // 예:
+    // 1) 폰 - 속성(색상, 크기), 기능(전화 걸다, 문자 보내기)
+    // 2) TV - 속성(인치, 화질), 기능(켜다, 끄다, 볼륨 업/다운, 음소거)
+    // 3) 차 - 속성(색상, 배기량, 가격), 기능(달리다, 멈추다, 후진)
+
+    // (참고) 객체 안에 객체도 가능함
+    const obj = {
+      Key1: 'Value1',
+      Key2: 100,
+      Key3: {
+        Key4: 'Value2',
+        Key5: function () {
+          console.log('로그 출력');
+        }
+      }
+    };
+    console.log(obj.Key3.Key4);
+    obj.Key3.Key5();
+
+    // 이미 쓰고 있던 객체들..
+    document.write('데이터'); // document 객체의 write 메소드
+    window.document.write('데이터'); // window 객체: document의 상위 객체(생략 가능)
+    document.write(Math.PI); // Math 객체의 PI 속성
+
+    // 자바스크립트의 객체의 종류
+    // 1. 사용자 정의 객체
+    // 2. 내장 객체
+    // 3. 브라우저 객체(BOM)
+    // 4. 문서 객체(DOM)
+
+    // 1. 사용자 정의 객체 만들기
+    // 1) Object 내장 객체 이용
+    // 변수 = new 객체 생성자 함수();
+    // new: 객체 생성 키워드
+    // 생성한 객체를 사용하기 위해 변수에 저장
+
+    // 변수 = new Object();
+    const tv = new Object(); // 객체 생성자 함수(constructor)는 대문자로 시작!!
+    // 속성 및 메소드 추가, 객체 접근은 도트 연산자(.)를 이용
+    tv.color = 'white';
+    tv.price = 300000;
+    tv.info = function () {
+      // this: 객체 자기 자신을 가리킴
+      document.write('tv 색상: ' + this.color, '<br>');
+      document.write('tv 가격: ' + this.price, '<br>');
+    };
+    document.write('<h1>tv 객체 메소드 호출</h1>');
+    tv.info();
+
+    // 2) 리터럴 방식을 이용
+    const car = {
+      // 객체의 속성 = Key: Value 1쌍의 형태
+      color: 'black',
+      price: 5000000,
+      info: function () {
+        document.write('car 색상: ' + this.color, '<br>');
+        document.write('car 가격: ' + this.price, '<br>');
+      }
+    };
+    document.write('<h1>car 객체 메소드 호출</h1>');
+    car.info();
+
+    // 객체 속성 추가, 수정, 삭제
+    car.company = 'Hyundai'; // company 속성 추가
+    document.write('제조사: ' + car.company, '<br>');
+    car.company = 'Kia'; // company 속성 수정
+    document.write('제조사: ' + car.company, '<br>');
+    delete car.company; // company 속성 삭제
+    document.write('제조사: ' + car.company, '<br>');
+
+    // 대괄호 표기법으로 속성 값 얻기
+    document.write('<h1>대괄호 표기법</h1>');
+    const user = {
+      name: 'goni',
+      age: 30,
+      'my hobby': ['badminton', 'cycle', 'snowboard']
+    };
+
+    document.write('name: ' + user.name, '<br>');
+    document.write('age: ' + user['age'], '<br>');
+    document.write('my hobby: ' + user['my hobby'], '<br>'); // 여러 단어로 이루어진 Key 사용 가능
+
+    // 키 값을 변수로 받아 접근하기
+    const key = prompt('사용자의 어떤 정보를 얻고 싶으신가요?', 'name');
+    document.write(user[key]); // 변수나 복잡한 표현식 사용 가능
+
+    // 정리: 대괄호 표기법을 쓰는 이유?
+    // 1) 여러 단어로 이루어진 키에 접근할 때
+    // 2) 키 값을 변수로 받아올 때
+
+    // (참고) const? 변하지 않는 객체??
+    const testUser = {
+      name: 'goni'
+    };
+    // 아래 코드는 에러 없이 실행될까요?
+    testUser.name = 'peter';
+
+    // const는 한 번이라도 값을 할당한 변수가 변경되는 걸 막음
+    // 변수 testUser는 객체의 참조값(주소값, 번지)을 저장하고 있는데,
+    // const는 이 값이 변경되는걸 막는 것이지, 객체의 내용(속성)을 변경하는 건 막지 않음
+    // testUser = 123; // error
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
