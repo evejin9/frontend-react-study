@@ -12,15 +12,28 @@
 
     const fruits = ['사과', '바나나', '딸기', '포도', '두리안', '파인애플'];
     
-    const hateFruits = prompt('당신이 먹기 싫은 과일은?', '');
+    // 풀어보기
+    // const hateFruits = prompt('당신이 먹기 싫은 과일은?', '');
     
-    if (hateFruits ) {
-      alert('제거할 과일이 없습니다.')
+    // if (hateFruits ) {
+      //   alert('제거할 과일이 없습니다.')
+      // }
+      
+    // 풀이3
+    const disliked = prompt('싫어하는 과일은?', '');
+    const dislikedIndex = fruits.indexOf(disliked);
+    console.log(dislikedIndex);
+
+    if (dislikedIndex === -1) {
+      alert('제거할 과일이 없습니다.');
+    } else {
+      fruits.splice(dislikedIndex, 1);
     }
 
+    console.log(fruits);
     
 
-    // 풀이3
+
     
   </script>
 </head>

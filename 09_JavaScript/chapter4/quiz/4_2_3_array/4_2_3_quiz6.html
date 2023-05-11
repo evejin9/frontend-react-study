@@ -10,32 +10,53 @@
     // 로또 번호 추첨기(완성)
     // 반복문을 이용하여 1~45까지의 랜덤한 정수값을 만들어내고 중복값이 아닐때만 배열에 추가해준다.
     // 로또 번호가 6개가 완성되면 오름차순으로 정렬까지 해서 출력해보세요.
+    // while문 사용하면 조금 더 편함!
 
     const lottoArr = []; // 빈 배열
-    const randomNum = Math.random();
 
-    lottoArr.push(Math.floor(Math.random() * 45) + 1);
-    const result = lottoArr.includes(Math.random());
+    // 풀어보기
+    // const randomNum = Math.random();
+
+    // lottoArr.push(Math.floor(Math.random() * 45) + 1);
+    // const result = lottoArr.includes(Math.random());
 
 
-    let i = 0;
-    while (i < 6) {
-      if (result === false) {
-        lottoArr.push(Math.floor(Math.random() * 45) + 1);
-        document.write(lottoArr)
-      }
-      i++
-    }
+    // let i = 0;
+    // while (i < 6) {
+    //   if (result === false) {
+    //     lottoArr.push(Math.floor(Math.random() * 45) + 1);
+    //     document.write(lottoArr)
+    //   }
+    //   i++
+    // }
 
-    console.log(lottoArr);
-    console.log(result);
+    // console.log(lottoArr);
+    // console.log(result);
     
-    
-    
-    
-
     // 풀이6
+    while (lottoArr.length < 6) {
+      const randomNum = Math.floor(Math.random() * 45) + 1;
+      if (!lottoArr.includes(randomNum)) {
+        lottoArr.push(randomNum);
+      }
+    }
+    document.write(lottoArr, '<br>');
+    document.write(lottoArr.sort(function (a, b) { return a - b; }), '<br>');
     
+    // 풀이6-2
+    // for문 사용
+    const lottoArr2 = []; // 빈 배열
+
+    for (let i = 0; i < 6;) {
+    // for (; lottoArr.length < 6;) {
+      const randomNum = Math.floor(Math.random() * 45) + 1;
+      if (!lottoArr2.includes(randomNum)) {
+        lottoArr2.push(randomNum);
+        i++;
+      }
+    }
+    document.write(lottoArr2.sort(function (a, b) { return a - b; }), '<br>');
+
     
   </script>
 </head>
