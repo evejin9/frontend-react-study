@@ -13,6 +13,19 @@
     // 숫자는 1초 간격으로 출력되어야 합니다.
     // 힌트: setInterval(), clearInterval()을 이용
 
+    // 
+
+    function printNumbers(from, to) {
+      const counter = setInterval(function () {
+        console.log(`from: ${from}`);
+        from++;
+        if (from > to) {
+          clearInterval(counter);
+        }
+      }, 1000);
+    }
+
+    // printNumbers(1, 0);
 
     // 풀이3
 
