@@ -15,21 +15,37 @@
 
     // 
 
-    function printNumbers(from, to) {
-      const counter = setInterval(function () {
-        console.log(`from: ${from}`);
-        from++;
-        if (from > to) {
-          clearInterval(counter);
-        }
-      }, 1000);
-    }
+    // 풀어보기
+    // function printNumbers(from, to) {
+    //   const counter = setInterval(function () {
+    //     console.log(`from: ${from}`);
+    //     from++;
+    //     if (from > to) {
+    //       clearInterval(counter);
+    //     }
+    //   }, 1000);
+    // }
 
     // printNumbers(1, 0);
 
     // 풀이3
+    // 한글로 풀이
+    // 1) 함수 printNumbers(from, to)를 선언하기
+    // 2) 1초 간격으로(setInterval(함수, 1000)) from 값을 출력시키기
+    // 3) 출력되는 숫자를 1씩 증가시키기(+1, ++)
+    // 4) to 값까지만(조건: from === to, from >= to) 출력하고 멈추기(clearInterval(변수))
+    
+    function printNumbers(from, to) {
+      const timerId = setInterval(function () {
+        document.write(from);
+        if (from >= to) {
+          clearInterval(timerId);
+        }
+        from++;
+      }, 1000)
+    }
 
-    printNumbers(5, 10); // 5~10까지 1초 간격으로 출력    
+    printNumbers(5, 15); // 5~10까지 1초 간격으로 출력    
   </script>
 </head>
 <body>

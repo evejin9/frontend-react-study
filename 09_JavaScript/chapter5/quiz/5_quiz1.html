@@ -14,17 +14,24 @@
     // min(3, -1) == -1
     // min(1, 1) == 1
     
+    // 풀어보기
+    // function min(a, b) {
+    //   arr = [a, b];
+    //   const min = Math.min(...arr);
 
+    //   document.write(`min(${a}, ${b}) == ${min}`);
+    // }
+
+    // min(8, 1);
+
+    // 풀이1-1
     function min(a, b) {
-      arr = [a, b];
-      const min = Math.min(...arr);
-
-      document.write(`min(${a}, ${b}) == ${min}`);
+      return a < b ? a : b;
     }
 
-    min(8, 1);
-    // 풀이1-1
-    
+    document.write(min(2, 5), '<br>');
+    document.write(min(3, -1), '<br>');
+    document.write(min(1, 1), '<br>');
   </script>
 </head>
 <body>
