@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 3.1
+    function calculatePrice(total, tax = 0.1, tip = 0.05) {
+      return total + (total * tax) + (total * tip);
+    }
+    calculatePrice(10);
+
+    // 3.2 3) 
+
+    // 4.1
+    // let a = "Hello,";
+    // let b = "is";
+    // let c = "my";
+    // let d = "name";
+    // let e = "Tom";
+
+    // let result = `${a} ${c} ${d} ${b} ${e}`;
+    // console.log(result);
+
+    // 4.2
+    let a = "1";
+    let b = "2";
+    let c = "plus";
+    let d = "3";
+    let e = "equals";
+
+    // let result = a + " " + c + " " + b + " " + e + " " + d;
+    let result = `${a} ${c} ${b} ${e} ${d}`;
+    console.log(result);
+
+    // 4.3
+    // let str = 'this is a very long tetx\n' + 'a very long text'
+//     let str = `this is a very long text
+// a very long text`
+
+    // console.log(str);
+
+    // 5.1) 1
+    // 5.2) 2
+    // 5.3) 
+    let str = "Na";
+    let bat = "BatMan";
+
+    let Batman = `${str.repeat(8)} ${bat}`
+    console.log(Batman);
+
+    // 6.2)
+    
+    let arr = ["one", "two", "three"];
+
+    const [numOne, numTwo, numThree] = arr;
+
+    console.log(numOne);
+    console.log(numTwo);
+    console.log(numThree);
+
+
+
+    // 디스트럭처링 연습
+    const person = {
+      name: 'Suzzi', 
+      age: 18,
+      height: 156,
+      favoriteMovie: {
+        englandDrama: ['Sherlock', 'Black Books', 'Miranda'],
+        koreaDrama: ['시그널', '라이프 온 마스']
+      }
+    }
+
+    const { name, age, height, favoriteMovie: { englandDrama, koreaDrama } } = person;
+
+    console.log(name);
+    console.log(age);
+    console.log(height);
+    console.log(englandDrama);
+    console.log(koreaDrama);
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
