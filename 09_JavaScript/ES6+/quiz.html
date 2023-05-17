@@ -82,6 +82,38 @@
     console.log(englandDrama);
     console.log(koreaDrama);
     
+
+    // 7.1) 2
+    // 7.2) 3
+
+    // 8.1)
+    const apple = "Apple";
+
+    const myArr = Array.from(apple);
+    console.log(myArr);
+
+    // 8.2) 4
+    // 8.3) 4
+    // 8.4) 2
+
+    // for of 풀어보기
+    const gender = [
+      { name: 'suzzi', gender: 'female'},
+      { name: 'soo', gender: 'male'},
+      { name: 'hyun', gender: 'male'},
+    ]
+
+    console.log(gender);
+    for (const genderArr of gender) {
+      // console.log(genderArr);
+    
+      for (const genderKey of Object.keys(genderArr)) {
+        const gender = genderArr[genderKey];
+        console.log(genderKey, gender);
+      }
+    };
+
+    
   </script>
 </head>
 <body>
