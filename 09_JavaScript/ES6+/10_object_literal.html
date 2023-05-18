@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 객체 리터럴 표기법의 변화(업그레이드)
+
+    // 1. 변수를 키와 값으로 하는 객체 만들기
+    const firstName = 'Suzzi'; 
+    const lastName = 'Kim';
+    const age = 25;
+    const nationality = 'Korean';
+
+    // ES5의 일반적인 방법
+    const person1 = {
+      firstName: firstName, 
+      lastName: lastName, 
+      age: age,
+      nationality: nationality
+    };
+    console.log(person1);
+    
+    // ES6에서 단순화
+    // 변수들의 이름이 객체 내의 속성명과 동일할 경우 생략 가능
+    const person2 = {
+      firstName, 
+      lastName, 
+      age,
+      nationality
+    };
+    console.log(person2);
+
+    // 2. 객체의 함수 추가하기
+    // ES5 
+    const person3 = {
+      name: 'Suzzi',
+      greet: function () { // 키값 + 익명함수
+        console.log('Hello');
+      }
+    };
+    person3.greet();
+
+    // ES6
+    const person4 = {
+      name: 'Suzzi',
+      greet() { // function 키워드 삭제, 기명함수
+        console.log('Hello');
+      }
+    }
+    person4.greet();
+
+    // 화살표 함수로 변경 시 
+    // const person5 = {
+    //   name: 'Suzzi',
+    //   () => { // function 키워드 삭제, 기명함수
+    //     console.log('Hello');
+    //   }
+    // };
+
+    const person5 = {
+      name: 'Suzzi',
+      greet: () => { // function 키워드 삭제, 기명함수
+        console.log('Hello');
+      }
+    };
+    person5.greet();
+
+    // 3. 객체의 속성을 동적으로 정의하기
+    const name = 'myname';
+
+    // ES5
+    // 빈 객체를 생성
+    const person6 = {};
+    // 객체를 업데이트(객체에 속성을 추가);
+    person6[name] = 'Suzzi';
+    console.log(person6);
+    // 객체를 먼저 생성한 다음 -> 수정
+
+    // ES6
+    // 객체 생성과 동시에 동적으로 속성 정의 가능 
+    // 예: 키 값을 동적으로 받아와서 새로운 객체를 생성할 때 유용 
+    const person7 = {
+      [name]: 'Suzzi'
+    };
+    console.log(person7);
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

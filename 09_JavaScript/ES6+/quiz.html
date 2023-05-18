@@ -64,24 +64,29 @@
 
 
     // 디스트럭처링 연습
-    const person = {
-      name: 'Suzzi', 
-      age: 18,
-      height: 156,
-      favoriteMovie: {
-        englandDrama: ['Sherlock', 'Black Books', 'Miranda'],
-        koreaDrama: ['시그널', '라이프 온 마스']
-      }
-    }
+    // const person = {
+    //   name: 'Suzzi', 
+    //   age: 18,
+    //   height: 156,
+    //   favoriteMovie: {
+    //     englandDrama: ['Sherlock', 'Black Books', 'Miranda'],
+    //     koreaDrama: ['시그널', '라이프 온 마스']
+    //   }
+    // }
 
-    const { name, age, height, favoriteMovie: { englandDrama, koreaDrama } } = person;
+    // const { name, age, height, favoriteMovie: { englandDrama, koreaDrama } } = person;
 
-    console.log(name);
-    console.log(age);
-    console.log(height);
-    console.log(englandDrama);
-    console.log(koreaDrama);
+    // console.log(name);
+    // console.log(age);
+    // console.log(height);
+    // console.log(englandDrama);
+    // console.log(koreaDrama);
     
+    // // const [ firstd, secondd, ...arrd] =  englandDrama
+
+    // // console.log(arrd);
+    // console.log(englandDrama);
+    // console.log(...englandDrama);
 
     // 7.1) 2
     // 7.2) 3
@@ -102,18 +107,65 @@
       { name: 'soo', gender: 'male'},
       { name: 'hyun', gender: 'male'},
     ]
-
     console.log(gender);
+
     for (const genderArr of gender) {
       // console.log(genderArr);
     
       for (const genderKey of Object.keys(genderArr)) {
         const gender = genderArr[genderKey];
-        console.log(genderKey, gender);
+        console.log(gender);
       }
     };
 
+    // 9.1) 3
+    // 9.2) 
+    const veggie = ["tomato", "cucumber", "beans"];
+    const meat = ["pork", "beef", "chicken"];
+
+    const menu = [...veggie, 'pasta', ...meat];
+
+    console.log(menu);
     
+  // 9.3) 
+  const runners = ["Tom", "Paul", "Mark", "Luke"];
+  
+  const [frist, second, ...losers] = runners
+  
+  console.log(losers);
+
+  // 9.4) 3
+
+  // 10.1)
+  // const name = 'name';
+  // const age = 'age';
+  // const breed = 'breed';
+  
+  // const animal = {
+  //   name,
+  //   age,
+  //   breed
+  // };
+  // console.log(animal);
+  
+
+  const name = 'veggieName';
+
+  const fruit = {
+    [name]: 'tomato',
+    color: 'red', 
+    price: 500,
+    info: 'this is not fruit'
+  }
+
+  console.log(fruit.veggieName);
+  console.log(fruit.color);
+  console.log(fruit.price);
+  console.log(fruit.info);
+
+  // 10.2) 2
+  // 10.3) 3
+
   </script>
 </head>
 <body>

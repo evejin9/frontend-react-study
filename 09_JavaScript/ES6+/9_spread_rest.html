@@ -107,6 +107,42 @@
       day: 'weekday'
     }
     console.log(classInfo2);
+
+    // 2. ... 레스트(rest, 나머지) 연산자
+    // 생긴 것은 스프레드 연산자와 동일하지만 기능적으로는 정반대
+    // 스프레드는 '확장(펼치다)'하는 반면, 레스트는 나머지 여러 요소를 하나의 요소로 '압축'
+
+    // 1) 배열과 레스트
+    const runners = ['Kim', 'Lee', 'Park', 'Choi'];
+    const [first, second, ...losers] = runners; // 레스트 연산자로 압축
+
+    console.log(losers); // ['Park', 'Choi']
+    console.log(...losers); // 스프레드 연산자로 쓰임
+
+    // 2) 함수의 레스트 파라미터
+    function sum(...args) { // [4, 5, 16, 25, 100]
+      console.log(args);
+      let sum = 0;
+      for (const arg of args) {
+        sum += arg;
+      }
+      return sum;
+    }
+    const result = sum(4, 5, 16, 25, 100);
+    console.log(`합계: ${result}`);
+
+    // 3) 객체 리터럴과 레스트(ES2018부터 객체에도 적용됨)
+    const myObj = {
+      a: 1,
+      b: 3, 
+      c: 5,
+      d: 7,
+      e: 9
+    }
+
+    // 레스트 연산자를 사용하여 a, b를 제외한 나머지 속성을 변수 z에 할당
+    const { a, b, ...z } = myObj; // 객체 구조 분해 할당할 때 객체 속성과 변수명 동일하게 쓰기
+    console.log(z); // {c: 5, d: 7, e: 9}
   </script>
 </head>
 <body>
