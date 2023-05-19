@@ -82,16 +82,19 @@
       document.getElementById('demo1').innerHTML = 'I love You !!';
     }
     // setTimeout(myMessage1(), 3000); // 이렇게 쓰면 함수를 호출해버림(X)
+    // setTimeout(() => {
+    //   myMessage1();
+    // }, 3000);
     setTimeout(myMessage1, 3000); // 함수의 이름을 넘김(O)
 
     // 인자값을 전달 받는(즉, 매개변수가 존재하는) 함수인 경우..?
     function myMessage2(value) {
       document.getElementById('demo2').innerHTML = value;
     }
-    // setTimeout(myMessage2('I love You !!'), 3000);
+    // setTimeout(myMessage2('I love You !!'), 3000); // 함수를 전달받는 것이 아닌 호출한다는 뜻임
     setTimeout(() => {
       myMessage2('I love You !!!');
-    }, 3000); // 전체 함수를 전달
+    }, 3000); // 그러므로 인자값이 있는 경우 전체 함수를 전달
     
     // 콜백 예4: 
     setInterval(() => {
@@ -211,6 +214,8 @@
     // 문제점
     // 1) 가독성이 떨어진다. 
     // 2) 디버깅, 유지보수가 힘들다.
+
+    
   </script>
 </head>
 <body>
