@@ -171,11 +171,11 @@
 
     // 프로미스 체이닝 예3:
     // 콜백 지옥 예제2를 프로미스로 리팩터링 하기
-    const loginUser = (id, passward) => {
+    const loginUser = (id, password) => {
       return new Promise((resolve, reject) => {
         // 네트워크 통신을 하는 것처럼 꾸밈
         setTimeout(() => {
-          if (id === 'suzzi' && passward === '1234') {
+          if (id === 'suzzi' && password === '1234') {
             // 로그인과 관련된 작업을 하고 서버에서 받아온 유저 정보(여기서는 그냥 id)를 콜백 함수에 전달함
             resolve(id);
           } else {

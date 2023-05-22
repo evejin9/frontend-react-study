@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 1. Set(집합)
+    // 어떠한 자료형의 값이든 각 요소를 고유하게 저장하는 객체
+    // 즉, 중복 저장이 불가
+
+    // Set 객체 생성
+    // new Set() 또는 new Set(iterable)
+    const familySet = new Set();
+
+    // Set에 값 추가
+    familySet.add('Dad');
+    console.log(familySet);
+    
+    familySet.add('Mom');
+    console.log(familySet);
+    
+    familySet.add('Son');
+    console.log(familySet);
+
+    familySet.add('Dad');
+    console.log(familySet);
+    // Set은 고유한 값만 가질 수 있기 때문에 (중복 저장 안 됨)
+
+    console.log(familySet.size); // 3
+    console.log(familySet.values()); // 값들을 Iterator 객체에 담아 반환
+    console.log(familySet.has('Dad')); // 특정 요소 검색
+    familySet.delete('Dad'); // 특정 요소 삭제
+    console.log(familySet);
+    familySet.clear(); // 모든 요소 삭제
+    console.log(familySet);
+
+    // Set에 대한 루프
+    // Iterator 객체의 next() 메소드를 사용하거나 for of 루프를 사용
+    familySet.add('Dad');
+    familySet.add('Mom');
+    familySet.add('Son');
+
+    // next() 사용
+    const iterator = familySet.values();
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+
+    // for of 루프 사용
+    for (const person of familySet) {
+      console.log(person);
+    }
+
+    // forEach()
+    familySet.forEach(value => console.log(value));
+
+    // 활용 Tip: 배열에서 중복 제거할 때 유용
+    // 고유한 값만 갖는 Set의 특징을 이용하여 배열에서 중복 제거 가능
+    const myArray = ['dad', 'mom', 'son', 'dad', 'mom', 'daughter'];
+    
+    const mySet = new Set(myArray);
+    console.log(mySet);
+
+    // Set을 Array로 변환(2가지 방법)
+    const uniqueArray1 = Array.from(mySet);
+    console.log(uniqueArray1);
+
+    const uniqueArray2 = [...mySet];
+    console.log(uniqueArray2);
+
+    // 2. Map 
+    // 어떠한 자료형이든 키-값 쌍으로 저장하는 객체
+    // 키는 고유한 값으로 중복 불가하지만 값은 중복 가능
+
+    // Map 객체 생성
+    // new Map() 또는 new Map(iterable)
+    const familyMap = new Map();
+
+    // Map에 값 추가
+    // set(key value) 메소드
+    familyMap.set('Dad', 50);
+    familyMap.set('Mod', 40);
+    familyMap.set('Son', 20);
+    console.log(familyMap);
+
+    console.log(familyMap.size);
+    console.log(familyMap.get('Dad')); // 키 값으로 특정 값 얻기
+    familyMap.set('Dad', 60); // 같은 키 값으로 새로운 값 추가
+    console.log(familyMap);
+    console.log(familyMap.has('Dad')); // 특정 요소 검색
+    familyMap.delete('Dad'); // 특정 요소 삭제
+    console.log(familyMap);
+    familyMap.clear(); // 모든 요소 삭제
+    console.log(familyMap);
+
+    // Map에 대한 루프
+    familyMap.set('Dad', 50);
+    familyMap.set('Mod', 40);
+    familyMap.set('Son', 20);
+
+    // forEach() 사용
+    familyMap.forEach((value, key) => console.log(key, value));
+
+    // for of 루프 사용
+    for (const familyInfo of familyMap) {
+      console.log(familyInfo);
+    }
+
+    // for of + 배열 구조 분해 할당
+    for (const [key, value] of familyMap) {
+      console.log(key, value);
+    }
+    
+    // (참고) Object와의 차이점
+    // 1) 키 유형: 
+    // Map의 키는 모든 값(함수, 객체 또는 원시값 포함)이 될 수 있습니다. 
+    // Object의 키는 String 또는 Symbol이여야 합니다.
+    // 2) 키 순서:
+    // Map 객체는 항목을 삽입한 순서대로 항목, 키 및 값을 반복합니다.
+    // 일반적인 Object의 키는 정렬되어 있지만 항상 그런것은 아니며 순서가 복잡합니다. 
+    // 3) 크기:
+    // Map의 아이템의 수는 size 속성에서 쉽게 가져올 수 있습니다.
+    // 4) 반복 가능:
+    // Map은 순회가능(iterable)하기 때문에 이므로 직접 반복할 수 있습니다.
+    // Object는 iteration protocol을 구현하지 않기 때문에 for of문을 사용하여 직접적으로 반복할 수 없습니다.
+    // 5) 성능
+    // Map은 키-값 쌍의 빈번한 추가 및 제거와 관련된 상황에서는 성능이 좀 더 좋습니다.
+    // Object는 키-값 쌍의 빈번한 추가 및 제거에 최적화되지 않았습니다.
+    // 6) Serialization and parsing
+    // 직렬화 또는 구문 분석에 대한 기본 지원이 없습니다.
+    // Object을 JSON으로 직렬화를 기본 지원합니다. JSON에서 Object으로의 구문 분석을 기본 지원합니다.
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
