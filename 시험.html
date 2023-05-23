@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 1. git config
+
+    // 2. git commit
+
+    // 3. git commit -m '로그인 기능 추가'
+
+    // 4. git remote add backup https://github.com/abcdef/frontend_backup.git
+
+    // 5. git push origin main
+
+    // 6.
+    // function hello(val) {
+    //   return 'Hello ' + val;
+    // }
+
+    const hello = val => 'Hello' + val;
+
+    // hello();
+
+    // 7.
+    const race = '100m dash';
+    const runners = ['Kim', 'Lee', 'Park'];
+
+    // const results = runners.map(function (runner, index) {
+    //   return {
+    //     name: runner,
+    //     race: race,
+    //     place: index + 1
+    //   };
+    // });
+    // console.log(results);
+
+    const results2 = runners.map((runner, index) => {
+      return {
+        name: runner,
+        race: race,
+        place: index + 1
+      };
+    });
+    console.log(results2);
+
+    // 8. 
+    const name = 'JH Kim';
+    const age = 30;
+    const hobby = 'badminton';
+    const greeting = 'Hello my name is ' + name + '. I\'m ' + age + ' years old. My hobby is playing ' + hobby + '.';
+
+    const greeting2 = `Hello my name is ${name}. I'm ${age} years old. My hobby is playing ${hobby}. ` 
+
+    console.log(greeting);
+    console.log(greeting2);
+
+    // 9. 
+    const action = {
+      type: 'action/name',
+      payload: {
+        id: '1',
+        title: '메인 화면 구성하기',
+        content: '메인 이미지와 아이템 목록 만들기',
+        done: true
+      }
+    };
+
+    const {type, payload: {id, title, content, done}} = action;
+
+    // 10. 
+    const person = {
+      name: 'JH Kim',
+      job: 'teacher',
+      education: { // optional
+        high_school: { // optional
+          name: 'Songdo'
+        },
+        university: { // optional
+          name: 'Incheon Hawaii',
+          major: 'ICE'
+        }
+      }
+    };
+
+    // 옵셔널 체이닝 미사용시
+    let universityMajor;
+    // if (person.education &&
+    //     person.education.university) {
+    //   universityMajor = person.education.university.major;
+    // }
+    // console.log(universityMajor);
+
+    universityMajor = person.education?.university?.major
+    console.log(universityMajor);
+
+    // 11. 
+    const userInfo = {
+    name: 'Goni Kim',
+    age: 30
+    };
+
+    const userInfo2 = {
+      ...userInfo,
+      email: 'geoblo@naver.com'
+    };
+
+    console.log(userInfo2);
+
+    // 12.
+    const moneyList = [2000000, 240000, 3000000, 1500];
+
+    console.log(moneyList);
+
+    const result = moneyList.map(money => {
+      const str = String(money)
+        console.log(str);
+    });
+
+    // console.log(result)
+    ;
+    // 13.
+    const members = [
+    { id: 'a1', name: 'Goni', age: 36 },
+    { id: 'a2', name: 'Pony', age: 32 },
+    { id: 'a3', name: 'Tony', age: 12 },
+    { id: 'a4', name: 'Moly', age: 24 },
+    { id: 'a5', name: 'Noni', age: 45 }
+    ];
+
+    // console.log(members);
+
+    // const idValue = prompt('id 값', 'a1');
+
+    // const deleteMember = () => {
+    //   members.filter((member) => {
+    //     return member !== 'a4'
+    //   });
+    // }
+    // deleteMember();
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

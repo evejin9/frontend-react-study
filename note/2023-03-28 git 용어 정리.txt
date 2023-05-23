@@ -2,7 +2,7 @@ GIT 용어(명령어) 정리
 
 git status (변경 상태 확인 (감지))
 git add .(모든 파일) or 파일 이름(특정 파일)
-git commit -m 'ㅇㅇ' (프로젝트 생성)
+git commit -m 'ㅇㅇ' (커밋 버전 생성)
 git log (이력)
 
 -> 로컬에서 저장 완료
