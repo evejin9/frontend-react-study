@@ -9,6 +9,7 @@ import Clock from './chapter4/Clock';
 import PropsUse from './chapter5/5.3/PropsUse';
 import Comment from './chapter5/Comment';
 import CommentList from './chapter5/CommentList';
+import CommentEx from './chapter5/5.6/CommentEx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // Root DOM Node에 렌더링 하도록 하는 함수
