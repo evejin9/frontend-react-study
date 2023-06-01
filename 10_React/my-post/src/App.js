@@ -1,6 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import PostDetail from './components/PostDetail';
+import PostListItem from './components/PostListItem';
 
 // POST앱 CRUD 만들기
 // C: Create(등록)
@@ -9,7 +10,9 @@ import PostDetail from './components/PostDetail';
 // D: Delete(삭제)
 function App() {
   // 서버에서 가져온 데이터라고 가정
-  const [posts, setPosts] = useState(['리액트 잘 쓰려면?', '자바 스트립트 핵심 문법', '스타일링 가이드'])
+  const [posts, setPosts] = useState([
+    '리액트 잘 쓰려면?', '자바 스트립트 핵심 문법', '스타일링 가이드'
+  ])
   const [showPostDetail, setShowPostDetail] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(null);
   const [likeCount, setLikeCount] = useState([0, 0, 0]);
@@ -58,6 +61,7 @@ function App() {
               <h4>{post}</h4>
               <p>2023년 1월 20일</p>
               <p>by goni.kim</p>
+              {/* <PostListItem posts={posts} /> */}
 
               <hr />
               
