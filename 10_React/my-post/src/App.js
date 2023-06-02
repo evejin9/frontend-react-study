@@ -12,7 +12,7 @@ import PostListItem from './components/PostListItem';
 const postArray = [{
   title: '리액트 잘 쓰려면?',
   date: '2023년 1월 20일',
-  author: 'by goni.kim'
+  author: 'goni.kim'
 },
 {
   title: '자바 스트립트 핵심 문법',
@@ -22,14 +22,12 @@ const postArray = [{
 {
   title: '스타일링 가이드',
   date: '2022년 12월 20일',
-  author: 'by hero'
+  author: 'hero'
 }]
 
 function App() {
   // 서버에서 가져온 데이터라고 가정
-  const [posts, setPosts] = useState([
-    '리액트 잘 쓰려면?', '자바 스트립트 핵심 문법', '스타일링 가이드'
-  ])
+  const [posts, setPosts] = useState(postArray)
   const [showPostDetail, setShowPostDetail] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(null);
   const [likeCount, setLikeCount] = useState([0, 0, 0]);
@@ -92,7 +90,7 @@ function App() {
           // (버그 수정) 포스트 하나 추가 시 좋아요 카운트도 같이 추가
           const copyLikeCount = [0, ...likeCount];
           setLikeCount(copyLikeCount);
-        }}>
+        }} >
           포스트 등록
         </button>
 

@@ -3,6 +3,7 @@ import React from 'react';
 function PostListItem(props) {
   const { index, post, posts, setPosts, setShowPostDetail, setCurrentIndex, likeCount, setLikeCount  } = props;
     
+    
     return (
       <div key={index} className='list' 
         onClick={() => {
@@ -10,9 +11,9 @@ function PostListItem(props) {
           setCurrentIndex(index);
         }}
       >
-        <h4>{post}</h4>
-        <p>2023년 1월 20일</p>
-        <p>by goni.kim</p>
+        <h4>{post.title}</h4>
+        <p>{post.date}</p>
+        <p>by {post.author}</p>
 
         <hr />
         
