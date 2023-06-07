@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import PostDetail from './components/PostDetail';
 import PostListItem from './components/PostListItem';
 
@@ -10,16 +10,19 @@ import PostListItem from './components/PostListItem';
 // D: Delete(삭제)
 
 const postArray = [{
+  id: 1,
   title: '리액트 잘 쓰려면?',
   date: '2023년 1월 20일',
   author: 'goni.kim'
 },
 {
+  id: 2,
   title: '자바 스트립트 핵심 문법',
   date: '2023년 1월 1일',
   author: 'alice'
 },
 {
+  id: 3,
   title: '스타일링 가이드',
   date: '2022년 12월 20일',
   author: 'hero'
@@ -32,6 +35,8 @@ function App() {
   const [currentIndex, setCurrentIndex] = useState(null);
   const [likeCount, setLikeCount] = useState([0, 0, 0]);
   const [newPost, setNewPost] = useState('');
+
+  const nextId = useRef(3);
 
   return (
     <>
@@ -83,14 +88,27 @@ function App() {
           // posts state에 요소 하나를 추가하면 자동으로 렌더링 O
           // const copyPost = [...posts];
           // copyPost.unshift(newPost);
-          const copyPost = [newPost, ...posts]
+
+          const date = new Date();
+
+          const post = {
+            id: nextId.current += 1,
+            title: newPost, 
+            date:  `${date.getFullYear()}년 ${date.getMonth()}월 ${date.getDate()}일 `,
+            author: 'visitor' ,
+          }
+          const copyPost = [post, ...posts]
           setPosts(copyPost);
           setNewPost('');
 
           // (버그 수정) 포스트 하나 추가 시 좋아요 카운트도 같이 추가
           const copyLikeCount = [0, ...likeCount];
           setLikeCount(copyLikeCount);
-        }} >
+
+          window.confirm('등록하시겠습니까?');
+        }} 
+          disabled={newPost === '' ? true : false }
+        >
           포스트 등록
         </button>
 
