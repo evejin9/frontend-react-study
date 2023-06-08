@@ -35,6 +35,7 @@ function App() {
   const [currentIndex, setCurrentIndex] = useState(null);
   const [likeCount, setLikeCount] = useState([0, 0, 0]);
   const [newPost, setNewPost] = useState('');
+  const [modifyPost, setModifyPost] = useState('');
 
   const nextId = useRef(3);
 
@@ -72,7 +73,7 @@ function App() {
         {/* Quiz: map()을 이용하여 post 반복 출력하기 */}
         {posts.map((post, index) => {
           return (
-            <PostListItem post={post} index={index} posts={posts} setPosts={setPosts} setShowPostDetail={setShowPostDetail} setCurrentIndex={setCurrentIndex} likeCount={likeCount} setLikeCount={setLikeCount} />
+            <PostListItem key={post.id} post={post} index={index} posts={posts} setPosts={setPosts} setShowPostDetail={setShowPostDetail} setCurrentIndex={setCurrentIndex} likeCount={likeCount} setLikeCount={setLikeCount} />
           );
         })}
 
@@ -94,7 +95,7 @@ function App() {
           const post = {
             id: nextId.current += 1,
             title: newPost, 
-            date:  `${date.getFullYear()}년 ${date.getMonth()}월 ${date.getDate()}일 `,
+            date:  `${date.getFullYear()}년 ${date.getMonth()+1}월 ${date.getDate()}일 `,
             author: 'visitor' ,
           }
           const copyPost = [post, ...posts]
@@ -113,7 +114,7 @@ function App() {
         </button>
 
         {/* 포스트 상세보기 */}
-        {showPostDetail && <PostDetail posts={posts} currentIndex={currentIndex} setPosts={setPosts} />}
+        {showPostDetail && <PostDetail posts={posts} currentIndex={currentIndex} setPosts={setPosts}  />}
       </div>
     </>
   );

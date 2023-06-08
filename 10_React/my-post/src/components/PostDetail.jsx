@@ -12,6 +12,7 @@ function PostDetail(props) {
       <p>... 상세내용 ...</p>
 
       {/* 간단한 포스트 수정하기 */}
+      <input type="text" />
       <button onClick={() => {
         // 배열이나 객체의 state 변경하는 법
         // 새로운 배열 또는 객체를 만들어 set함수에 넣어줘야 함
