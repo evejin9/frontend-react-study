@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from "react-redux";
+
 import JsxUse from './chapter3/3.4/JsxUse';
 import Library from './chapter3/Library';
 import Clock from './chapter4/Clock';
@@ -50,6 +52,8 @@ import ParentComponent from './chapter7/7.5/ParentComponent';
 import SimpleRouter from './chapter16/SimpleRouter';
 import ApiRequest from './chapter17/ApiRequest';
 import OpenApi from './chapter17/OpenApi';
+import CounterApp from './chapter18/CounterApp';
+import { store } from './chapter18/app/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // Root DOM Node에 렌더링 하도록 하는 함수
@@ -132,7 +136,15 @@ root.render(
 
   // 17장 예제
   // <ApiRequest />
-  <OpenApi />
+  // <OpenApi />
+
+  // 18장 예제
+  // 2. 리액트에 Redux Store를 제공하기
+  // CounterApp 컴포넌트와 그 하위 자식들은 Redux Store에 접근 가능
+  // Redux Store에 저장된 state들을 마음대로 꺼내 쓸 수 있음
+  <Provider store={store}>
+    <CounterApp />
+  </Provider>
 );
 
 // 4장 예제

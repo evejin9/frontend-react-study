@@ -41,7 +41,7 @@ function OpenApi(props) {
       } catch (error) {
         console.error(error);
       }
-    }
+    };
     handleMovieApi();
   },[movieDate]);
   
@@ -56,7 +56,7 @@ function OpenApi(props) {
         </DateButton>
         : 
         <DateButton onClick={() => {
-          const datePrompt = prompt(`원하는 일별 박스오피스 날짜를 8자리로 입력하세요!`, '20230506');
+          const datePrompt = prompt(`원하는 일별 박스오피스 날짜를 8자리로 입력하세요!`, '20230619');
           setMovieDate(datePrompt);
           setClickedButton(!clickedButton);
         }}
@@ -74,6 +74,7 @@ function OpenApi(props) {
               <h3>{movie.rank}위</h3>
               <h2>{movie.movieNm}</h2>
               <p>개봉일: {movie.openDt}</p>
+              <p>누적 관객수: {movie.audiAcc}명</p>
             </div>
             </MovieItem>
           )
