@@ -24,6 +24,11 @@ function ProductList(props) {
 
   const dispatch = useDispatch();
 
+  const handlePushProduct = () => (
+    dispatch(pushProductList(newProduct)),
+    setNewProduct('')
+  )
+
   return (
     <ProductBox>
       상품 추가: 
@@ -31,13 +36,14 @@ function ProductList(props) {
         type='text'
         value={newProduct}
         onChange={(e) => setNewProduct(e.target.value)}
+        onKeyUp={(e) => {
+          if (e.key === 'Enter') {
+            handlePushProduct();
+          }
+        }}
       />
       <button
-        onClick={() => (
-            dispatch(pushProductList(newProduct)),
-            setNewProduct('')
-          )
-        }
+        onClick={() => handlePushProduct()}
       >
         상품 추가
       </button>
