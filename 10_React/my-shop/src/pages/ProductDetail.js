@@ -1,11 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, Button, Col, Container, Row } from 'react-bootstrap';
+import { Alert, Button, Col, Container, Form, Nav, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSelectedProducts, selectSelectedProduct } from '../features/product/productSlice';
+import styled, { keyframes } from "styled-components";
 
 // 서버에서 받아온 데이터라고 가정
 import data from "../data.json";
+import { toast } from 'react-toastify';
+import TabContents from '../components/TabContents';
+
+// 스타일드 컴포넌트를 이용한 애니메이션 속성 적용
+const highlight = keyframes`
+  from { background-color: #cff4fc } // = 0%
+  50% { background-color: #e8f7fa }
+  to { background-color: #cff4fc } // = 100%
+`;
+
+const StyledAlert = styled(Alert)`
+  animation: ${highlight} 1s linear infinite;
+`;
 
 function ProductDetail() {
   // URL 파라미터 가져오기
@@ -14,6 +28,10 @@ function ProductDetail() {
   const selectedPr = useSelector(selectSelectedProduct);
 
   const [showAlert, setShowAlert] = useState(true); // Alert창 상태
+  const [orderCount, setOrderCount] = useState(1); // 주문 수량 상태
+  const [showTabIndex, setShowTabIndex] = useState(0); // 탭 상태
+  const [showTab, setShowTab] = useState('datail');
+
 
   // 숫자 포맷 적용
   const formatter = new Intl.NumberFormat('ko-KR', { style: 'currency', currency:'KRW'});
@@ -28,7 +46,6 @@ function ProductDetail() {
     });
     if (!foundProduct) return;
     dispatch(getSelectedProducts(foundProduct));
-
   }, []);
 
   useEffect(() => {
@@ -40,6 +57,15 @@ function ProductDetail() {
       clearTimeout(timeout);
     };
   }, []);
+
+  const handleChangeOrderCount = (e) => {
+    if (isNaN(e.target.value)) {
+      toast.error('💯숫자만 입력하세요!');
+      return;
+    }
+
+    setOrderCount(Number(e.target.value));
+  }
 
   if (!selectedPr) {
     // return null; // 아무것도 렌더링하지 않음
@@ -53,9 +79,9 @@ function ProductDetail() {
       */}
 
       {showAlert && 
-        <Alert variant="info">
+        <StyledAlert variant="info" onClose={() => setShowAlert(false)} dismissible>
           현재 34명이 이 상품을 보고 있습니다. 
-        </Alert> 
+        </StyledAlert> 
       }
 
       <Row>
@@ -67,9 +93,74 @@ function ProductDetail() {
           <h4 className='pt-5'>{selectedPr?.title}</h4>
           <p>{selectedPr?.content}</p>
           <p>{formatter.format(selectedPr?.price)}원</p>
+
+          {/* 주문 수량 입력 UI */}
+          <Col md={4} className='m-auto mb-3'>
+            <Form.Control type='text' value={orderCount} onChange={handleChangeOrderCount} />
+          </Col>
+
           <Button variant='primary'>주문하기</Button>
         </Col>
       </Row>
+
+      {/* 탭 UI 만들기 */}
+      {/* defaultActiveKey: 기본으로 active할 탭 */}
+      <Nav variant="tabs" defaultActiveKey="link-0" className='my-3'>
+        <Nav.Item>
+          {/* <Nav.Link eventKey="link-0" onClick={() => setShowTabIndex(0)}>상세정보</Nav.Link> */}
+          <Nav.Link eventKey="link-0" onClick={() => {setShowTabIndex(0); setShowTab('detail')}}>상세정보</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          {/* <Nav.Link eventKey="link-1" onClick={() => setShowTabIndex(1)}>리뷰</Nav.Link> */}
+          <Nav.Link eventKey="link-1" onClick={() => {setShowTabIndex(1); setShowTab('review')}}>리뷰</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          {/* <Nav.Link eventKey="link-2" onClick={() => setShowTabIndex(2)}>Q&amp;A</Nav.Link> */}
+          <Nav.Link eventKey="link-2" onClick={() => {setShowTabIndex(2); setShowTab('qa')}}>Q&amp;A</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          {/* <Nav.Link eventKey="link-3" onClick={() => setShowTabIndex(3)}>반품/교환정보</Nav.Link> */}
+          <Nav.Link eventKey="link-3" onClick={() => {setShowTabIndex(3); setShowTab('exchange')}}>반품/교환정보</Nav.Link>
+        </Nav.Item>
+      </Nav>
+
+      {/* 탭의 내용을 다 만들어 놓고 조건부 렌더링하면 됨 */}
+      {/* 방법 1. 삼항 연산자 사용(비효율적) */}
+      {/* {showTabIndex === 0 
+        ? <div>탭 내용 1</div>
+        : showTabIndex === 1
+          ? <div>탭 내용 2</div>
+          : showTabIndex === 2
+            ? <div>탭 내용 3</div>
+            : showTabIndex === 3
+              ? <div>탭 내용 4</div>
+              : null
+      } */}
+
+      {/* 방법 2. 컴포넌트로 추출 */}
+      {/* <TabContents showTabIndex={showTabIndex} /> */}
+
+      {/* 방법 3. 배열이나 객체 형태로 만들어서 조건부 렌더링 (편법) */}
+      {/* 배열 형태 */}
+      {/* {
+        [
+          <div>탭 내용 1</div>,
+          <div>탭 내용 2</div>,
+          <div>탭 내용 3</div>,
+          <div>탭 내용 4</div>,
+        ][showTabIndex]
+      } */}
+
+      {/* 객체 형태 */}
+      {
+        {
+          'detail': <div>탭 내용 1</div>,
+          'review': <div>탭 내용 2</div>,
+          'qa': <div>탭 내용 3</div>,
+          'exchange': <div>탭 내용 4</div>,
+        }[showTab]
+      }
+
     </Container>
   );
 }

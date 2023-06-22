@@ -12,7 +12,7 @@ const StyledCol = styled(Col)`
 function ProductListItem(props) {
   const { product } = props;
 
-  const formatter = new Intl.NumberFormat('ko-KR');
+  const formatter = new Intl.NumberFormat('ko-KR', { style:'currency', currency:'KRW' });
 
   // 이동 경로 설정하기
   const navigate = useNavigate();
