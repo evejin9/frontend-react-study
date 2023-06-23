@@ -3,7 +3,7 @@ import { getProducts } from "../../api/productAPI";
 
 const initialState = {
   productList: [],
-  seletedProduct: null,
+  selectedProduct: null,
   status: 'idle', // API 요청 상태
 };
 
@@ -41,6 +41,9 @@ const productSlice = createSlice({
       console.log(action.payload);
       state.productList.push(...action.payload);
     },
+    clearSeletedProduct: (state) => {
+      state.seletedProduct = null;
+    },
   },
   // thunk를 이용한 비동기적인 작업에는 extraReducers를 사용
   // (참고)
@@ -61,7 +64,7 @@ const productSlice = createSlice({
   }
 });
 
-export const { getAllProducts, getSelectedProducts, getMoreProducts } = productSlice.actions;
+export const { getAllProducts, getSelectedProducts, getMoreProducts, clearSeletedProduct } = productSlice.actions;
 
 export const selectProductList = (state) => state.product.productList;
 export const selectSelectedProduct = (state) => state.product.seletedProduct;

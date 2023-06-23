@@ -14,6 +14,7 @@ import { useEffect } from 'react';
 import { getAllProducts, getMoreProducts, getMoreProductsAsync, selectProductList, selectStatus } from '../features/product/productSlice';
 import ProductListItem from '../components/ProductListItem';
 import { getProducts, getUser } from '../api/productAPI';
+import LatestView from '../components/LatestView';
 
 const MainBackground = styled.div`
   height: 500px;
@@ -139,8 +140,11 @@ function Main(props) {
         </Button>
 
         {/* 개인 연습 */}
-        <hr />
-        <Button variant='outline-info' className='mb-4' onClick={handleUserInfo}>유저 정보</Button>
+        {/* <hr />
+        <Button variant='outline-info' className='mb-4' onClick={handleUserInfo}>유저 정보</Button> */}
+
+        {/* 최근 본 상품 */}
+        <LatestView />
       </section>
     </>
   );
