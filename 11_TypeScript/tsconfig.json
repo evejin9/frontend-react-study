@@ -1,0 +1,23 @@
+// 여기엔 타입스크립트 .ts 파일들을 .js 파일로 변환할 때 어떻게 변환할 것인지 세부 설정
+{
+  "compilerOptions": { // ts -> js 컴파일 시 옵션 설정 가능
+    "target": "ES6", // 호환성을 생각한다면 ES5, 신문법을 쓰려면 ES6 이후
+    "module": "ESNext", // import 문법 사용에 대한 설정 
+
+    // 유용한 추가 옵션들
+    "strictNullChecks": true, // null과 undefined 값이 있는지 체크하여 에러 띄워줌
+    "noImplicitAny": true, // 암시적 any 타입 금지 여부
+  }
+}
+// "target"은 타입스크립트 파일을 어떤 버전의 자바스크립트로 바꿔줄지 정하는 부분
+// es5로 셋팅해놓으면 es5 버전 자바스크립트로 컴파일(변환, 번역) 해줌 
+// 신버전을 원하면 es6, esnext 이런 것도 입력할 수 있습니다. 
+
+// "module"은 자바스크립트 파일간 import 문법을 구현할 때 어떤 문법을 쓸지 정하는 곳
+// commonjs는 require 문법
+// es2015, esnext는 import 문법을 사용
+
+// 정리: 어느정도 호환성을 원하면 es5, commonjs가 국룰임(옛날에 IE 쓰던 시절)
+// 근데 정말 신버전 자바스크립트만 표현가능한 그런 문법들이 있는데 
+// (예를 들어 BigInt() 이런 함수와 bigint 타입)
+// 그런 것들은 esnext 등으로 버전을 올려줘야 사용가능합니다.
